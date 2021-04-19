@@ -1,0 +1,2 @@
+[ERROR] 2021-02-20 10:27:37.981 --> < SaveThread.cpp, line:265 >   "MV_GIGE_SetIpConfig failed.(错误码：0x80000206)" 
+[ERROR] 2021-02-24 16:04:28.702 --> < SaveThread.cpp, line:265 >   "MV_GIGE_SetIpConfig failed.(错误码：0x80000206)" 

@@ -1,0 +1,1145 @@
+[ERROR] 2021-02-08 18:46:42.767 --> < CommonInterface.cpp, line:477 >   loadFavoritesXml failed. 
+[WARN] 2021-02-08 18:46:42.860 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-08 18:51:29.140 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-08 18:51:29.143 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-08 18:51:31.057 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-08 18:52:08.251 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-08 18:52:08.595 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-08 18:52:08.623 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-08 18:52:10.236 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-08 18:52:24.438 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-08 18:52:24.446 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-08 18:53:15.667 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-08 18:56:04.683 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-08 18:56:04.687 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-08 18:56:42.058 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-08 18:56:42.068 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-08 18:57:11.684 --> < CommonInterface.cpp, line:477 >   loadFavoritesXml failed. 
+[WARN] 2021-02-08 18:57:11.774 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-08 18:57:57.727 --> < CommonInterface.cpp, line:477 >   loadFavoritesXml failed. 
+[WARN] 2021-02-08 18:57:57.818 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 17:17:51.497 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 17:26:58.107 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 17:31:44.007 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 17:34:32.427 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 17:37:08.152 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 17:37:48.841 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 17:38:00.079 --> < , line:0 >   QLayout::addChildLayout: layout "" already has a parent 
+[WARN] 2021-02-19 17:38:00.079 --> < , line:0 >   QLayout::addChildLayout: layout "" already has a parent 
+[WARN] 2021-02-19 17:38:21.644 --> < , line:0 >   QLayout::addChildLayout: layout "" already has a parent 
+[WARN] 2021-02-19 17:38:21.644 --> < , line:0 >   QLayout::addChildLayout: layout "" already has a parent 
+[WARN] 2021-02-19 17:38:35.675 --> < , line:0 >   QLayout::addChildLayout: layout "" already has a parent 
+[WARN] 2021-02-19 17:38:35.675 --> < , line:0 >   QLayout::addChildLayout: layout "" already has a parent 
+[WARN] 2021-02-19 17:38:35.696 --> < , line:0 >   QStackedWidget::setCurrentWidget: widget 0x7f5b4400a230 not contained in stack 
+[WARN] 2021-02-19 17:38:35.719 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:36.272 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:36.456 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:37.835 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:42.683 --> < , line:0 >   QLayout::addChildLayout: layout "" already has a parent 
+[WARN] 2021-02-19 17:38:42.683 --> < , line:0 >   QLayout::addChildLayout: layout "" already has a parent 
+[WARN] 2021-02-19 17:38:44.766 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:46.010 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:55.854 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:55.861 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:56.840 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:57.105 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:57.184 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:57.887 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:57.896 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:59.184 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:59.281 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:38:59.408 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:39:00.270 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:39:00.285 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:39:01.256 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:39:01.400 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:39:01.496 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 17:39:09.317 --> < , line:0 >   QLayout: Attempting to add QLayout "" to MVSMultiFrameSelectWidget "", which already has a layout 
+[WARN] 2021-02-19 17:39:09.317 --> < , line:0 >   QLayout: Attempting to add QLayout "" to MVSMultiFrameSelectWidget "", which already has a layout 
+[WARN] 2021-02-19 17:39:09.317 --> < , line:0 >   QLayout: Attempting to add QLayout "" to MVSMultiFrameSelectWidget "", which already has a layout 
+[WARN] 2021-02-19 17:39:09.317 --> < , line:0 >   QLayout: Attempting to add QLayout "" to MVSMultiFrameSelectWidget "", which already has a layout 
+[WARN] 2021-02-19 17:50:51.469 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 17:55:40.144 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-19 21:50:23.475 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 21:50:23.481 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-19 21:50:25.487 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-19 21:52:42.857 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-19 21:52:43.198 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-19 21:52:43.261 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-19 21:52:44.427 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-19 21:53:00.374 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 09:59:20.153 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[ERROR] 2021-02-20 10:00:26.588 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[ERROR] 2021-02-20 10:00:53.251 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[ERROR] 2021-02-20 10:00:56.169 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[ERROR] 2021-02-20 10:05:31.289 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[WARN] 2021-02-20 10:06:44.825 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-20 10:06:47.112 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[ERROR] 2021-02-20 10:16:51.702 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[WARN] 2021-02-20 10:22:30.144 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-20 10:22:31.791 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:22:32.138 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 10:22:32.168 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:22:32.688 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:22:32.712 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:22:34.931 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:26:01.203 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-20 10:26:05.734 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[WARN] 2021-02-20 10:26:41.468 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-20 10:26:48.150 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[WARN] 2021-02-20 10:27:19.437 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:27:19.444 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:27:21.491 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 10:27:56.710 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[ERROR] 2021-02-20 10:28:10.798 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:28:11.147 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 10:28:11.177 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 10:28:12.429 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 10:28:15.242 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:15.260 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:20.499 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:20.667 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:21.261 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:21.308 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:21.444 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:21.532 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 10:28:21.887 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:28:29.428 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:28:29.622 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 10:28:36.636 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:36.638 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:39.353 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.353 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.353 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.353 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:39.367 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.367 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.367 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.367 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:39.868 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.868 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.868 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.868 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:39.879 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.879 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.879 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.879 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:39.890 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.890 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.890 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.890 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:39.890 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.890 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.891 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.892 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:39.892 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 10:28:39.892 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 10:28:39.892 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 10:28:39.892 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 10:28:40.953 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:40.957 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:41.905 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:41.914 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:43.426 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:43.682 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:28:43.778 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:11.529 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:11.610 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:36.337 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:36.407 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:36.490 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:36.526 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:36.606 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:36.680 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:37.305 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:29:37.313 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:01.386 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:01.388 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 10:30:06.760 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:30:07.281 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 10:30:11.762 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:11.772 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:12.810 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:13.177 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:13.682 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:14.154 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:14.714 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:14.818 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 10:30:20.187 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:30:20.379 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:30:27.509 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:30:30.651 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 10:30:30.844 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 10:30:42.698 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:42.706 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:44.176 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:47.848 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:47.928 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:30:48.032 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:31:26.530 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:31:26.532 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:31:29.111 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:31:29.112 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:31:29.439 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:31:29.519 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 10:38:22.189 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:22.292 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:22.398 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:23.499 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:24.522 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : AcquisitionFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:26.026 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.046 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : AcquisitionFrameRateEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.046 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.047 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : AutoExposureTimeLowerLimit;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.047 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : AutoExposureTimeUpperLimit;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.047 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : CounterCurrentValue;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.047 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : DeviceTemperature;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.048 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : DeviceUptime;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.048 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ExposureAuto;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.048 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ExposureTime;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.048 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : FPNCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.048 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : Gain;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.049 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : GainAuto;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.049 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : GevSCDA;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.049 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : GevSCSP;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.049 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : LineStatus;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.049 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : LineStatusAll;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.050 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : NUCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.050 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : PRNUCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.050 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.050 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : SharpnessEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.147 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.248 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.348 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.449 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.549 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.650 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 10:38:28.689 --> < QMvsCentralWindow.cpp, line:2093 >   "Device is offline. [CameraID:1]" 
+[WARN] 2021-02-20 10:38:28.870 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 10:38:28.921 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 10:55:10.721 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[WARN] 2021-02-20 11:12:24.234 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-20 11:12:26.727 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[ERROR] 2021-02-20 11:13:30.327 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[WARN] 2021-02-20 11:13:33.084 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 11:13:33.089 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 11:13:34.225 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 11:13:42.449 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[ERROR] 2021-02-20 11:14:10.304 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[WARN] 2021-02-20 11:14:18.184 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-20 11:14:20.664 --> < MVSOperateCameraThread.cpp, line:192 >   "ConnectCamera failed.0xffffffffffffff96 [CameraID:1]" 
+[WARN] 2021-02-20 11:14:42.639 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-20 11:15:15.040 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 11:15:15.387 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 11:15:15.419 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 11:15:18.809 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 11:15:19.437 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 11:15:19.485 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 11:15:22.692 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 13:21:41.809 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-20 13:21:43.692 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 13:21:43.697 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 13:21:45.198 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 13:21:45.708 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 13:21:48.054 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 13:21:51.341 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 13:21:51.542 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 13:21:51.645 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:01.821 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-20 15:58:03.799 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:03.810 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:07.904 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:24.487 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:24.552 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:24.679 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:26.000 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:26.007 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:27.183 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:31.618 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:31.622 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:33.303 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:39.694 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:58:39.707 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 15:59:01.702 --> < QCameraBasicTask.cpp, line:390 >   CAMERA_POINT_NULL_RETURN 
+[WARN] 2021-02-20 15:59:09.054 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:59:09.174 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 15:59:09.293 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 15:59:49.747 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-20 15:59:50.099 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 15:59:50.130 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:00:20.524 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:00:20.565 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:00:26.980 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:00:26.988 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:10.249 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:10.624 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:15.674 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:03:15.675 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:03:15.675 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:03:15.675 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:03:15.690 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:03:15.690 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:03:15.690 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:03:15.690 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:03:24.407 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:03:24.408 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:03:24.408 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:03:24.408 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:03:35.237 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:03:35.237 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:03:35.237 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:03:35.237 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:03:36.598 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:03:36.598 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:03:36.598 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:03:36.598 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:03:36.599 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:03:36.600 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:03:36.600 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:03:36.600 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:03:36.601 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:03:36.601 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:03:36.601 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:03:36.601 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:03:46.464 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.533 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.566 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.607 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.641 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.665 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.706 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.726 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.752 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.772 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.793 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.825 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.853 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.882 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.902 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.937 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.959 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:46.977 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.005 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.024 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.051 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.067 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.083 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.094 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.108 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.127 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.143 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.155 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.173 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.186 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.203 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.215 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:47.227 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.727 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.836 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.862 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.890 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.904 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.927 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.948 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.971 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:49.996 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.017 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.042 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.063 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.083 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.115 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.137 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.163 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.183 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.207 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.228 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.246 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.263 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.278 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.292 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.309 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.325 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.342 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.358 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.375 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.392 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.409 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.422 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.438 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.453 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.471 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.478 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.490 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.503 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.515 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.562 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.587 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.639 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.688 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.715 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.734 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.753 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.775 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.789 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.808 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.825 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.842 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.857 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.878 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.902 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.913 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.929 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.945 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.962 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.977 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:50.992 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.008 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.024 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.039 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.055 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.071 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.087 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.348 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.402 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.444 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:51.510 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.461 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.527 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.569 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.616 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.655 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.798 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.853 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.871 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.899 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.929 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.956 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:53.983 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.000 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.028 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.052 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.068 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.080 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.091 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.106 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.117 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.129 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.164 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.199 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.219 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.235 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.254 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.271 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.286 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.309 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.327 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.344 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.362 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.379 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.397 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.430 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.454 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.480 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.505 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.527 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.545 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.563 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.613 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.652 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.684 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.758 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.798 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.831 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.867 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.898 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.930 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.953 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:54.978 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.004 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.023 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.047 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.065 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.082 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.095 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.111 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.125 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.140 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.155 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.169 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.185 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.200 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.215 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.227 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.243 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.259 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.274 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.289 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.304 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.319 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.334 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.347 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.363 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.377 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.392 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.407 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.419 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.434 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.450 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.468 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.508 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:55.740 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.015 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.084 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.126 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.157 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.174 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.196 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.274 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.310 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.337 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.362 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.383 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.409 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.434 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.459 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.482 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:03:56.503 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:10.792 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:11.151 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 16:04:11.397 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-20 16:04:14.756 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:14.756 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:14.756 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:14.756 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:14.772 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:14.772 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:14.772 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:14.772 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:17.293 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:17.293 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:17.293 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:17.293 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:17.307 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:17.307 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:17.308 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:17.308 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:17.321 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:17.321 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:17.321 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:17.321 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:17.322 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:17.322 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:17.322 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:17.322 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:17.322 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:17.322 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:17.322 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:17.322 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:17.323 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:17.323 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:17.323 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:17.323 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:17.323 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:04:17.323 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:04:17.323 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:04:17.323 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:04:18.416 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:18.427 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:18.663 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:18.704 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:53.256 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:53.263 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:54.832 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:54.844 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:55.543 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:55.551 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:57.970 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.017 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.049 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.090 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.113 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.153 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.179 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.226 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.250 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.271 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.306 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.325 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.351 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.371 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.389 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.410 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.435 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.463 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.478 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.504 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.528 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.544 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.570 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.587 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.605 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:58.904 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:59.182 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:04:59.198 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:05:00.678 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:05:00.767 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:05:01.090 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:05:01.112 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:05:01.926 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:05:01.944 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:05:33.218 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:05:33.231 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:11:59.559 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:11:59.648 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:12:00.287 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:12:00.304 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:12:00.463 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:12:01.779 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:12:01.786 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:15:57.363 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:15:57.722 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:16:10.707 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:16:10.844 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:16:28.843 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:16:28.858 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:16:29.458 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:16:29.499 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:22:31.601 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:22:31.606 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:10.543 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:10.575 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:10.946 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:10.966 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:13.087 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:13.128 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:14.842 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:14.848 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:43.483 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:43.505 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:44.434 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:44.440 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:45.735 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:45.751 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:48.303 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:44:48.318 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:48.087 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:48.151 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:49.232 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:49.245 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:49.456 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:49.489 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:51.099 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-20 16:51:51.100 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-20 16:51:51.100 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-20 16:51:51.100 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-20 16:51:52.761 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:52.777 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:54.255 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:54.273 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:57.217 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:51:57.233 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:52:57.678 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:52:57.686 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:52:59.590 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:52:59.598 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:02.861 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:02.913 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:02.954 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.009 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.030 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.087 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.123 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.334 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.360 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.461 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.477 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.490 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.511 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.527 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.547 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.562 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.578 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.593 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.609 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.624 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.640 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.655 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.691 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.731 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.812 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.844 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.862 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:03.942 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:04.455 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:04.479 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.404 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.436 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.453 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.479 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.499 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.535 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.792 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.849 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.881 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.914 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.946 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:07.976 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.132 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.372 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.390 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.407 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.424 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.467 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.507 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.686 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.774 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.849 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:08.990 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:09.470 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:10.091 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:10.169 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:10.446 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:10.975 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:11.480 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:11.521 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:11.840 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:12.790 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 16:53:13.472 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 17:12:15.492 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 17:12:15.502 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-20 17:22:25.501 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : AcquisitionFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-20 17:22:27.504 --> < QMvsCentralWindow.cpp, line:2093 >   "Device is offline. [CameraID:1]" 
+[ERROR] 2021-02-20 17:22:28.506 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : AcquisitionFrameRateEnable;  ErrorCode : ffffffff80000206" 
+[WARN] 2021-02-20 17:22:28.537 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 17:22:28.580 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 17:41:46.738 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-20 17:41:46.761 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 10:28:53.472 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 10:28:53.481 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 10:28:53.537 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 10:28:53.544 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:36.133 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:36.173 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:37.225 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:37.228 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:37.516 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:37.605 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:37.940 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:37.965 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-22 13:39:39.759 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-22 13:39:40.096 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-22 13:39:40.119 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:43.270 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-22 13:39:43.270 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-22 13:39:43.270 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-22 13:39:43.270 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-22 13:39:43.271 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-22 13:39:43.271 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-22 13:39:43.271 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-22 13:39:43.271 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-22 13:39:43.273 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-22 13:39:43.273 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-22 13:39:43.273 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-22 13:39:43.273 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-22 13:39:47.091 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:39:47.165 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:40:01.567 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:40:01.589 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:40:03.124 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:40:03.140 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:40:04.196 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:40:04.213 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:40:04.221 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:42:25.561 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:42:25.577 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:44:14.024 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:44:14.040 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:44:15.343 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 13:44:15.359 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-22 16:53:01.099 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : AcquisitionFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-22 16:53:03.101 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : AcquisitionFrameRateEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-02-22 16:53:05.103 --> < QMvsCentralWindow.cpp, line:2093 >   "Device is offline. [CameraID:1]" 
+[ERROR] 2021-02-22 16:53:06.104 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : AutoExposureTimeLowerLimit;  ErrorCode : ffffffff80000206" 
+[WARN] 2021-02-22 16:53:06.152 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-22 16:53:06.196 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 15:55:38.113 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[WARN] 2021-02-24 16:00:04.402 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:00:04.410 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:00:08.805 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:19.407 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:19.412 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:21.876 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:22.148 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:22.251 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:29.160 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:29.165 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:30.372 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:32.532 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:32.804 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-24 16:05:32.892 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-24 16:05:42.860 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-24 16:05:43.187 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-24 16:05:43.216 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-24 16:05:46.162 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-24 16:05:52.317 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:04.368 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-27 10:43:06.357 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 10:43:06.711 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 10:43:06.741 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 10:43:09.616 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 10:43:12.771 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:12.899 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:12.995 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:13.043 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:15.062 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-27 10:43:15.062 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-27 10:43:15.062 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-27 10:43:15.062 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-27 10:43:15.064 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-27 10:43:15.064 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-27 10:43:15.064 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-27 10:43:15.064 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-27 10:43:23.163 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:23.171 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:24.467 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:24.499 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:29.430 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:29.518 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:29.648 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:29.721 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:29.831 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:29.948 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.070 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.165 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.298 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.371 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.453 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.598 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.715 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.815 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:30.899 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:31.047 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:31.082 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:31.149 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:31.232 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:31.367 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:31.455 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:31.516 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:43:31.587 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:44:39.499 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:44:39.611 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:44:40.043 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:44:40.051 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:46:24.221 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:46:24.229 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:46:41.397 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:46:41.428 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:48:39.869 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:48:40.149 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:48:40.620 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:48:40.670 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:48:41.412 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:48:41.653 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 10:49:00.641 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 10:49:21.227 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 10:49:37.457 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 10:49:48.517 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 10:53:22.254 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 10:53:32.813 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 10:53:43.703 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 10:57:58.774 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:57:58.789 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:59:35.524 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 10:59:35.549 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 11:00:04.885 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:03:41.828 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:03:41.861 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:04:07.637 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:04:07.658 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:04:20.766 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:04:20.845 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:04:26.516 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:04:26.541 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 11:04:38.565 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:06:21.138 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:06:36.426 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:06:46.591 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:07:06.882 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:07:53.849 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:10:52.453 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:10:52.470 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:10:53.053 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:10:53.069 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:10:58.299 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:10:58.307 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.016 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.169 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.244 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.339 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.369 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.425 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.501 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.539 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.619 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.722 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:00.809 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.017 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.128 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.186 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.236 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.309 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.400 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.517 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.613 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.687 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.783 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.855 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:01.922 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.004 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.072 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.180 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.256 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.326 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.407 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.507 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.589 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.643 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.703 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.736 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.777 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:02.927 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.005 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.054 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.105 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.167 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.205 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.270 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.339 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.378 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.492 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:03.552 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 11:11:37.362 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:11:56.548 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:11:56.557 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 11:12:04.464 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:12:10.668 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:14:36.398 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:14:41.151 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:18:15.334 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-27 11:18:17.261 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:18:17.611 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:18:17.641 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:18:24.528 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-27 11:18:24.529 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-27 11:18:24.529 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-27 11:18:24.529 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-27 11:18:28.245 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:18:28.269 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:18:36.573 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:18:36.581 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 11:20:39.025 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:20:39.297 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-27 11:20:39.297 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-27 11:20:39.297 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-27 11:20:39.297 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-27 11:22:08.315 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:08.323 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:11.389 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:11.404 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:57.748 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:57.765 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:58.309 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:58.333 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:58.669 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:22:58.685 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 11:23:14.234 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:23:50.633 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:23:50.635 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:23:50.673 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:26:01.540 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:26:01.581 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 11:26:03.841 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 11:26:04.186 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:26:04.208 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:26:05.579 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-27 11:26:05.580 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-27 11:26:05.580 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-27 11:26:05.580 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[ERROR] 2021-02-27 11:26:16.822 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 11:26:16.844 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-02-27 11:26:16.844 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-02-27 11:26:16.844 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-02-27 11:26:16.844 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-02-27 11:28:28.005 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 11:28:28.021 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 11:28:38.549 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 15:31:24.980 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 18:10:11.965 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-02-27 18:10:14.670 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-02-27 18:10:15.022 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 18:10:15.052 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-02-27 18:10:16.162 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-02-27 18:10:19.546 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 18:10:19.554 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 18:10:19.626 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 18:10:19.666 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-02-27 18:10:23.811 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:12:53.892 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-04-01 13:12:57.206 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-04-01 13:12:57.552 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-04-01 13:12:57.664 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-04-01 13:12:58.993 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-04-01 13:13:02.549 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:13:02.730 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:13:05.017 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-04-01 13:13:05.017 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-04-01 13:13:05.017 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-04-01 13:13:05.017 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-04-01 13:13:05.018 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-04-01 13:13:05.018 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-04-01 13:13:05.018 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-04-01 13:13:05.018 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-04-01 13:13:41.342 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:13:41.349 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:13:42.950 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:13:46.609 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:13:47.073 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:13:47.201 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:14:30.399 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:14:30.401 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:14:31.384 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:14:31.632 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:14:31.752 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:14:31.936 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:14:31.963 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-04-01 13:31:51.153 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.254 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.354 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.454 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : AcquisitionFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : AcquisitionFrameRateEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : AutoExposureTimeLowerLimit;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : AutoExposureTimeUpperLimit;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : CounterCurrentValue;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : DeviceTemperature;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : DeviceUptime;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ExposureAuto;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ExposureTime;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : FPNCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.538 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : Gain;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : GainAuto;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : GevSCDA;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : GevSCSP;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : LineStatus;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : LineStatusAll;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : NUCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : PRNUCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.539 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : SharpnessEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.555 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.655 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.755 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.855 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:51.956 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.056 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.156 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.257 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.357 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.457 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.558 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.658 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.758 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.859 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:52.959 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.059 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.159 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.260 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.360 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.460 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : AcquisitionFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : AcquisitionFrameRateEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : AutoExposureTimeLowerLimit;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : AutoExposureTimeUpperLimit;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : CounterCurrentValue;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : DeviceTemperature;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : DeviceUptime;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ExposureAuto;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ExposureTime;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : FPNCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : Gain;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : GainAuto;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : GevSCDA;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.537 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : GevSCSP;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.538 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : LineStatus;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.538 --> < QCameraControl.cpp, line:522 >   "Operate Feature Failed; NodeName : LineStatusAll;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.538 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : NUCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.538 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : PRNUCEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.538 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.538 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : SharpnessEnable;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.560 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.661 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.761 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.861 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:53.961 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.062 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.162 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.263 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.363 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.464 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.565 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.665 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.766 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.866 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:54.967 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:55.067 --> < QCameraControl.cpp, line:576 >   "Operate Feature Failed; NodeName : ResultingFrameRate;  ErrorCode : ffffffff80000206" 
+[ERROR] 2021-04-01 13:31:55.147 --> < QMvsCentralWindow.cpp, line:2093 >   "Device is offline. [CameraID:1]" 
+[WARN] 2021-04-01 13:31:55.328 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-01 13:31:55.376 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 13:32:50.392 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-04-06 13:32:53.429 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-04-06 13:32:53.778 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-04-06 13:32:53.903 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-04-06 13:32:54.731 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-04-06 13:33:08.240 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 13:33:08.247 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 13:33:09.140 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-04-06 13:33:09.140 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-04-06 13:33:09.140 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-04-06 13:33:09.140 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-04-06 13:33:09.141 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-04-06 13:33:09.141 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-04-06 13:33:09.141 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-04-06 13:33:09.141 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-04-06 13:33:16.631 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 13:33:16.695 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-04-06 13:33:21.753 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-04-06 13:33:26.167 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 13:33:26.207 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 13:33:29.135 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 13:33:29.142 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 15:13:47.006 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-04-06 15:13:49.622 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-04-06 15:13:49.966 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-04-06 15:13:50.071 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[ERROR] 2021-04-06 15:13:52.230 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-04-06 15:14:11.772 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 15:20:31.441 --> < , line:0 >   QLayout: Cannot add a null widget to QVBoxLayout/ 
+[ERROR] 2021-04-06 15:20:33.953 --> < QCameraControl.cpp, line:683 >   "Operate Feature Failed; NodeName : ChunkModeActive;  ErrorCode : ffffffff80000106" 
+[ERROR] 2021-04-06 15:20:34.299 --> < QCameraControl.cpp, line:630 >   "Operate Feature Failed; NodeName : ImageCompressionMode;  ErrorCode : ffffffff80000106" 
+[WARN] 2021-04-06 15:20:34.430 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 15:20:36.782 --> < , line:0 >   QPainter::begin: Paint device returned engine == 0, type: 2 
+[WARN] 2021-04-06 15:20:36.782 --> < , line:0 >   QPainter::setRenderHint: Painter must be active to set rendering hints 
+[WARN] 2021-04-06 15:20:36.782 --> < , line:0 >   QPainter::setPen: Painter not active 
+[WARN] 2021-04-06 15:20:36.782 --> < , line:0 >   QPainter::fillPath: Painter not active 
+[WARN] 2021-04-06 15:21:40.099 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 15:21:40.107 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 15:21:40.139 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
+[WARN] 2021-04-06 15:21:43.176 --> < , line:0 >   QFont::setPixelSize: Pixel size <= 0 (-1) 
