@@ -2,7 +2,20 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "./thirdparty/MVS/include/MvCameraControl.h"
+#include <pthread.h>
+#include "MvCameraControl.h"
+#include <fstream>
+//#include <opencv2/core.hpp>
+//#include <opencv2/highgui.hpp>
+//#include <opencv2/opencv.hpp>
+#include <math.h>
+#include <chrono>
+
+//using namespace cv;
+using namespace std;
+
+bool g_bExit = false;
+bool g_bReset = false;
 
 // 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
@@ -12,6 +25,8 @@ void PressEnterToExit(void)
     while ( (c = getchar()) != '\n' && c != EOF );
     fprintf( stderr, "\nPress enter to exit.\n");
     while( getchar() != '\n');
+    g_bExit = true;
+    sleep(1);
 }
 
 bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo)
@@ -46,14 +61,83 @@ bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo)
     return true;
 }
 
-
-void __stdcall ImageCallBackEx(unsigned char * pData, MV_FRAME_OUT_INFO_EX* pFrameInfo, void* pUser)
+static void* WorkThread(void* pUser)
 {
-    if (pFrameInfo)
+    int nRet = MV_OK;
+
+    // ch:获取数据包大小 | en:Get payload size
+    MVCC_INTVALUE stParam;
+    MVCC_INTVALUE time;
+    uint64_t tt1;
+    memset(&stParam, 0, sizeof(MVCC_INTVALUE));
+    nRet = MV_CC_GetIntValue(pUser, "PayloadSize", &stParam);
+    if (MV_OK != nRet)
     {
-        printf("GetOneFrame, Width[%d], Height[%d], nFrameNum[%d]\n", 
-            pFrameInfo->nWidth, pFrameInfo->nHeight, pFrameInfo->nFrameNum);
+        printf("Get PayloadSize fail! nRet [0x%x]\n", nRet);
+        return NULL;
     }
+
+    MV_FRAME_OUT_INFO_EX stImageInfo = {0};
+    memset(&stImageInfo, 0, sizeof(MV_FRAME_OUT_INFO_EX));
+    unsigned char * pData = (unsigned char *)malloc(sizeof(unsigned char) * stParam.nCurValue);
+    if (NULL == pData)
+    {
+        return NULL;
+    }
+    unsigned int nDataSize = stParam.nCurValue;
+
+    while(1)
+    {
+		if(g_bExit)
+		{
+			break;
+		}
+	    if (g_bReset == false) {
+	    nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlReset");
+	    auto tt1 = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now().time_since_epoch()).count(); 
+	    g_bReset = true;
+	    if (MV_OK != nRet)
+		{
+		    printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
+		}
+	    }
+
+        nRet = MV_CC_GetOneFrameTimeout(pUser, pData, nDataSize, &stImageInfo, 1000);
+        nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlLatch");
+        nRet = MV_CC_GetIntValue(pUser, "GevTimestampValue", &time);
+        if (nRet == MV_OK)
+        {
+	    //cv::Mat M = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
+	    unsigned int timestampHigh = stImageInfo.nDevTimeStampHigh;
+	    unsigned int timestampLow = stImageInfo.nDevTimeStampLow; 
+	    uint64_t timestamp = timestampHigh * pow(2, 32) + timestampLow; 
+	   // nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlLatch");
+	    if (MV_OK != nRet)
+		{
+		    printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
+		}
+	    
+//	    nRet = MV_CC_GetIntValue(pUser, "GevTimestampValue", &time);
+	    if (MV_OK != nRet)
+		{
+		    printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
+		}
+
+	    std::fstream out1 ("./timestamp1.txt", ios::app);
+	    std::fstream out2 ("./timestamp2.txt", ios::app);
+	    
+	    out1 << tt1 << std::endl;
+	    out2 << timestamp * 10 << std::endl;
+            printf("GetOneFrame, Width[%d], Height[%d], nFrameNum[%d]\n", 
+                stImageInfo.nWidth, stImageInfo.nHeight, stImageInfo.nFrameNum);
+        }
+        else{
+            printf("No data[%x]\n", nRet);
+        }
+    }
+
+    free(pData);
+    return 0;
 }
 
 int main()
@@ -61,6 +145,9 @@ int main()
     int nRet = MV_OK;
 
     void* handle = NULL;
+    //Mat m_image;
+    //VideoWriter g_vid;
+
     do 
     {
         MV_CC_DEVICE_INFO_LIST stDeviceList;
@@ -74,6 +161,7 @@ int main()
             printf("MV_CC_EnumDevices fail! nRet [%x]\n", nRet);
             break;
         }
+
         if (stDeviceList.nDeviceNum > 0)
         {
             for (int i = 0; i < stDeviceList.nDeviceNum; i++)
@@ -148,21 +236,32 @@ int main()
             break;
         }
 
-        // 注册抓图回调
-        // register image callback
-        nRet = MV_CC_RegisterImageCallBackEx(handle, ImageCallBackEx, handle);
-        if (MV_OK != nRet)
-        {
-            printf("MV_CC_RegisterImageCallBackEx fail! nRet [%x]\n", nRet);
-            break; 
-        }
-
         // 开始取流
         // start grab image
         nRet = MV_CC_StartGrabbing(handle);
         if (MV_OK != nRet)
         {
             printf("MV_CC_StartGrabbing fail! nRet [%x]\n", nRet);
+            break;
+        }
+
+	nRet = MV_CC_SetBoolValue(handle, "AcquisitionFrameRateControlEnable", true);
+	if (nRet != 0)
+	{
+	    printf("MV_CC_SetBoolValue fail! nRet [%x]\n", nRet); 
+	}
+
+	nRet = MV_CC_SetFloatValue(handle, "AcquisitionFrameRate", 40.00);
+	if (nRet != 0)
+	{
+	    printf("MV_CC_SetFloatValue fail! nRet [%x]\n", nRet); 
+	}
+
+        pthread_t nThreadID;
+        nRet = pthread_create(&nThreadID, NULL ,WorkThread , handle);
+        if (nRet != 0)
+        {
+            printf("thread create failed.ret = %d\n",nRet);
             break;
         }
 
@@ -206,6 +305,5 @@ int main()
     }
 
     printf("exit\n");
-
     return 0;
 }
