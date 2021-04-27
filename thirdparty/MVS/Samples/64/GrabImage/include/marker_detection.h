@@ -1,4 +1,4 @@
-#include "/home/zebra/Documents/thirdparty/aruco-3.1.12/src/aruco.h"
+#include "/home/icey/software/aruco-3.1.12/src/aruco.h"
 #include <iostream>
 #include <fstream>
 #include <opencv2/highgui/highgui.hpp>

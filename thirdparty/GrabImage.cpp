@@ -1,5 +1,96 @@
-#include "Grab_ImageCallback.h"
-Grabimage grab;
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include "MvCameraControl.h"
+#include <fstream>
+#include <opencv2/core.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/opencv.hpp>
+#include <math.h>
+#include <chrono>
+#include <boost/lexical_cast.hpp>
+#include "./include/marker_detection.h"
+#include <thread>
+
+using namespace cv;
+using namespace std;
+
+bool g_bExit = false;
+bool g_bReset = false;
+VideoWriter g_vid;
+Mat m_image;
+uint64_t systime;
+
+//marker识别
+void marker(cv::Mat image) {
+    const std::string h_matrix_dir = "/home/zebra/test/groundtruth/extrinsic_calibrationfile.yaml";
+    std::string result_dir;
+    const std::string setting_dir = "/home/zebra/test/groundtruth/intrinsic_calibrationfile.yaml";
+
+    groundtruth gt;
+    gt.intrinsic(setting_dir);
+    aruco::MarkerDetector MDetector;
+    MDetector.setDictionary("ARUCO");
+    cv::String folder = "/home/zebra/Downloads/2020325/image/*.png";
+    std::vector<cv::String> filenames;
+    std::vector<cv::String> names;
+    std::vector<double> name;
+    cv::glob(folder, filenames, false);
+    int nImages = filenames.size();
+    //cv::Mat image;
+    float start_x;
+    float start_y;
+
+    static int i = 0;
+
+    
+        gt.undistort(image);
+        gt.pnp(h_matrix_dir, i);
+        gt.markers;
+        for (size_t i = 0; i < gt.markers.size(); i++){
+            int id = gt.markers[i].id;
+
+            switch ( id )
+            {
+                case 0:
+                    result_dir = "/home/zebra/test/groundtruth/result_0.txt";
+                    break;
+                case 1:
+                    result_dir = "/home/zebra/test/groundtruth/result_1.txt";
+                    break;
+                case 10:
+                    result_dir = "/home/zebra/test/groundtruth/result_10.txt";
+                    break;
+                case 16:
+                    result_dir = "/home/zebra/test/groundtruth/result_16.txt";
+                    break;
+                case 23:
+                    result_dir = "/home/zebra/test/groundtruth/result_23.txt";
+                    break;
+            }
+        }
+        if (i == 0)
+        {
+            start_x = gt.pt[i][0];
+            start_y = gt.pt[i][1];
+        }
+        std::ofstream  groundtruth_file(result_dir, std::ofstream::app);
+        std::cout << filenames[i] << std::endl;
+        names.push_back(filenames[i].substr(36, 19));
+        name.push_back(std::stod(names[i], NULL) / 1000000000.00);
+        if (i > 0)
+            if (((name[i] - name[i - 1]) < 0.06) && ((abs(gt.pt[i][0] - gt.pt[i - 1][0]) > 0.02) || (abs(gt.pt[i][1] - gt.pt[i - 1][1]) > 0.02)))
+                return;
+        groundtruth_file << names[i] << " " << (gt.pt[i][0] - start_x) * 0.96595 - 0.0221 << " " << (gt.pt[i][1] - start_y) * 0.96595 + 0.001895 << " 0.0"
+        << " 0.0" << " 0.0" << " 0.0" << " 0.0" << std::endl;
+
+	++i;
+        imshow("video", image);
+        //cv::waitKey(1);
+}
+
 // 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
 void PressEnterToExit(void)
@@ -8,6 +99,8 @@ void PressEnterToExit(void)
     while ( (c = getchar()) != '\n' && c != EOF );
     fprintf( stderr, "\nPress enter to exit.\n");
     while( getchar() != '\n');
+    g_bExit = true;
+    sleep(1);
 }
 
 bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo)
@@ -42,22 +135,6 @@ bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo)
     return true;
 }
 
-
-void __stdcall ImageCallBackEx(unsigned char * pData, MV_FRAME_OUT_INFO_EX* pFrameInfo, void* pUser)
-{
-    if (pFrameInfo)
-    {
-        //grab.m_image = cv::Mat(pFrameInfo->nHeight, pFrameInfo->nWidth, CV_8UC1, pData);
-        //cv::imshow("image", grab.m_image);
-        //printf("1");
-        //thread mythread(grab.Grabimage);
-        //mythread.join();
-
-        printf("GetOneFrame, Width[%d], Height[%d], nFrameNum[%d]\n", 
-            pFrameInfo->nWidth, pFrameInfo->nHeight, pFrameInfo->nFrameNum);
-    }
-}
-/*
 static void* WorkThread(void* pUser)
 {
     int nRet = MV_OK;
@@ -87,52 +164,51 @@ static void* WorkThread(void* pUser)
 
     while(1)
     {
-        i++;
-        if(grab.g_bExit)
-        {
-            break;
-        }
-        if (grab.g_bReset == false) {
-        nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlReset");
-        grab.systime = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count(); 
-        grab.g_bReset = true;
-        if (MV_OK != nRet)
-        {
-            printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
-        }
-        }
+	    i++;
+		if(g_bExit)
+		{
+			break;
+		}
+	    if (g_bReset == false) {
+	    nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlReset");
+	    systime = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count(); 
+	    g_bReset = true;
+	    if (MV_OK != nRet)
+		{
+		    printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
+		}
+	    }
 
         nRet = MV_CC_GetOneFrameTimeout(pUser, pData, nDataSize, &stImageInfo, 1000);
         //nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlLatch");
         //nRet = MV_CC_GetIntValue(pUser, "GevTimestampValue", &time);
         if (nRet == MV_OK)
         {
-        grab.m_image = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
-        //imshow("test", m_image);
-        //g_vid.write(m_image);
-        //g_vid << m_image;
-        //waitKey();
-        
-        //marker
-        thread mythread(Grabimage);
-        mythread.join();
-        //unsigned int timestampHigh = stImageInfo.nDevTimeStampHigh;
-        //unsigned int timestampLow = stImageInfo.nDevTimeStampLow; 
-        //int64_t timestamp = timestampHigh * pow(2, 32) + timestampLow; 
-        //imwrite("./image/" + to_string(timestamp * 10 + systime) + ".png", m_image);
-        
-        nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlLatch");
-        if (MV_OK != nRet)
-        {
-            printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
-        }
-        
-        nRet = MV_CC_GetIntValue(pUser, "GevTimestampValue", &time);
-        if (MV_OK != nRet)
-            {
-                printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
-            }
-        
+	    m_image = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
+	    //imshow("test", m_image);
+	    //g_vid.write(m_image);
+	    //g_vid << m_image;
+	    //waitKey(1);
+	    
+	    //marker
+	    thread mythread(marker, m_image);
+	    unsigned int timestampHigh = stImageInfo.nDevTimeStampHigh;
+	    unsigned int timestampLow = stImageInfo.nDevTimeStampLow; 
+	    int64_t timestamp = timestampHigh * pow(2, 32) + timestampLow; 
+	    imwrite("./image/" + to_string(timestamp * 10 + systime) + ".png", m_image);
+	    /*
+	    nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlLatch");
+	    if (MV_OK != nRet)
+		{
+		    printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
+		}
+	    
+	    nRet = MV_CC_GetIntValue(pUser, "GevTimestampValue", &time);
+	    if (MV_OK != nRet)
+	    	{
+	    	    printf("MV_CC_SetCommandValue fail! nRet [%x]\n", nRet);
+	    	}
+		*/
 
             printf("GetOneFrame, Width[%d], Height[%d], nFrameNum[%d]\n", 
                 stImageInfo.nWidth, stImageInfo.nHeight, stImageInfo.nFrameNum);
@@ -145,14 +221,13 @@ static void* WorkThread(void* pUser)
     free(pData);
     return 0;
 }
-*/
 
-void Grab_image()
-{    
-    //grabimage grab;
+int main()
+{
     int nRet = MV_OK;
 
     void* handle = NULL;
+
     do 
     {
         MV_CC_DEVICE_INFO_LIST stDeviceList;
@@ -166,6 +241,7 @@ void Grab_image()
             printf("MV_CC_EnumDevices fail! nRet [%x]\n", nRet);
             break;
         }
+
         if (stDeviceList.nDeviceNum > 0)
         {
             for (int i = 0; i < stDeviceList.nDeviceNum; i++)
@@ -185,9 +261,9 @@ void Grab_image()
             break;
         }
 
-        //printf("Please Intput camera index: ");
+        printf("Please Intput camera index: ");
         unsigned int nIndex = 0;
-        //scanf(nIndex);
+        scanf("%d", &nIndex);
 
         if (nIndex >= stDeviceList.nDeviceNum)
         {
@@ -240,21 +316,34 @@ void Grab_image()
             break;
         }
 
-        // 注册抓图回调
-        // register image callback
-        nRet = MV_CC_RegisterImageCallBackEx(handle, ImageCallBackEx, handle);
-        if (MV_OK != nRet)
-        {
-            printf("MV_CC_RegisterImageCallBackEx fail! nRet [%x]\n", nRet);
-            break; 
-        }
-
         // 开始取流
         // start grab image
+	
+        //g_vid.open("VideoTest001.avi",CAP_ANY,CAP_PROP_FPS,Size(1920,1200),0);
         nRet = MV_CC_StartGrabbing(handle);
         if (MV_OK != nRet)
         {
             printf("MV_CC_StartGrabbing fail! nRet [%x]\n", nRet);
+            break;
+        }
+
+	nRet = MV_CC_SetBoolValue(handle, "GevAcquisitionFrameRateControlEnable", true);
+	if (nRet != 0)
+	{
+	    printf("MV_CC_SetBoolValue fail! nRet [%x]\n", nRet); 
+	}
+
+	nRet = MV_CC_SetFloatValue(handle, "AcquisitionFrameRate", 50.00);
+	if (nRet != 0)
+	{
+	    printf("MV_CC_SetFloatValue fail! nRet [%x]\n", nRet); 
+	}
+
+        pthread_t nThreadID;
+        nRet = pthread_create(&nThreadID, NULL ,WorkThread , handle);
+        if (nRet != 0)
+        {
+            printf("thread create failed.ret = %d\n",nRet);
             break;
         }
 
@@ -263,6 +352,7 @@ void Grab_image()
         // 停止取流
         // end grab image
         nRet = MV_CC_StopGrabbing(handle);
+	//g_vid.release();
         if (MV_OK != nRet)
         {
             printf("MV_CC_StopGrabbing fail! nRet [%x]\n", nRet);
@@ -270,7 +360,7 @@ void Grab_image()
         }
 
         // 关闭设备
-        // close devicehandle
+        // close device
         nRet = MV_CC_CloseDevice(handle);
         if (MV_OK != nRet)
         {
@@ -298,6 +388,5 @@ void Grab_image()
     }
 
     printf("exit\n");
-
-    //return 0;
+    return 0;
 }

@@ -21,7 +21,7 @@ include_directories(
   ${EIGEN3_INCLUDE_DIR}
   ${ARUCO_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
-  "/opt/MVS/include"
+  "/home/icey/workspace/visual_tracking_system/thirdparty/MVS/include"
 )
 
 add_executable(marker_detection src/marker_detection.cpp)
@@ -36,7 +36,7 @@ target_link_libraries(GrabImage
 ${OpenCV_LIBS}
 ${EIGEN3_LIBS}
 ${aruco_LIBS}
-"/opt/MVS/lib/64/libMvCameraControl.so"
+"/home/icey/workspace/visual_tracking_system/thirdparty/MVS/include/libMvCameraControl.so"
 Threads::Threads
 )
 
