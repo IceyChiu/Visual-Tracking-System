@@ -14,6 +14,7 @@
 #include <fstream>
 #include <stdio.h> 
 #include <time.h>
+#include <mutex>
 
 using namespace cv;
 using namespace std;
@@ -25,19 +26,12 @@ public:
     bool g_bExit = false;
     bool g_bReset = false;
     uint64_t systime;
-
+    mutex _mutex_locker;
+    mutex _pic_lock;
+    bool repeat;
 };
 void Grab_image();
 int StartGrab();
 extern Grabimage grab;
 
-int64_t GetTime(void)                                                                         
-{
-    struct timespec rt;
-    clock_gettime(CLOCK_MONOTONIC, &rt); 
-    int64_t t;
-    t = (int64_t)(rt.tv_sec) * 1000000 + rt.tv_nsec / 1000;
-           
-    return t;
-}
-
+int64_t GetTime(void);                                                                         

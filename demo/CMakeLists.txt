@@ -11,12 +11,16 @@ find_package(OpenGL REQUIRED )
 find_package(glfw3 REQUIRED )
 find_package(GLEW REQUIRED)
 find_package(Threads REQUIRED)
+find_package(Eigen3  REQUIRED)
+find_package(aruco REQUIRED )
 
 include_directories(
   ${OpenCV_INCLUDE_DIRS}
   ${OPENGL_INCLUDE_DIRS}
   ${GLFW_INCLUDE_DIR}
   ${GLEW_INCLUDE_DIRS}
+  ${ARUCO_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}
   ../display/imgui
   ../display/imgui/backends
   /usr/include/SDL/
@@ -37,5 +41,6 @@ add_executable(demo test.cpp
     ../GrabImage.cpp
     )
 add_definitions("-DIMGUI_IMPL_OPENGL_LOADER_GLEW")
-target_link_libraries(demo "/opt/MVS/lib/64/libMvCameraControl.so" ${OpenCV_LIBS} GL GLU GLEW::GLEW glfw3 X11 Xxf86vm Xrandr pthread Xi dl Xinerama Xcursor Threads::Threads)
+target_link_libraries(demo "/opt/MVS/lib/64/libMvCameraControl.so" ${OpenCV_LIBS} ${EIGEN3_LIBS}
+${aruco_LIBS} GL GLU GLEW::GLEW glfw3 X11 Xxf86vm Xrandr pthread Xi dl Xinerama Xcursor Threads::Threads)
 

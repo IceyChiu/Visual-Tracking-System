@@ -18,6 +18,9 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "../Grab_ImageCallback.h"
+#include <boost/lexical_cast.hpp>
+#include "../../Aruco/include/marker_detection.h"
+
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
@@ -30,6 +33,7 @@ static void glfw_error_callback(int error, const char* description)
 {
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
+
 /*
 int64_t GetTime(void)
 {
@@ -75,6 +79,97 @@ bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_wid
     *out_height = image_height;
     
     return true;
+}
+*/
+/*
+bool ImGui::ColorButtonLongTouch(const char* desc_id, const ImVec4& col, bool* bLongTouch, ImGuiColorEditFlags flags, ImVec2 size)
+{
+    ImGuiWindow* window = GetCurrentWindow();
+    if (window->SkipItems)
+        return false;
+
+    ImGuiContext& g = *GImGui;
+    const ImGuiID id = window->GetID(desc_id);
+    float default_size = GetFrameHeight();
+    if (size.x == 0.0f)
+        size.x = default_size;
+    if (size.y == 0.0f)
+        size.y = default_size;
+    const ImRect bb(window->DC.CursorPos, window->DC.CursorPos + size);
+    ItemSize(bb, (size.y >= default_size) ? g.Style.FramePadding.y : 0.0f);
+    if (!ItemAdd(bb, id))
+        return false;
+
+    if (window->DC.ItemFlags & ImGuiItemFlags_ButtonRepeat)
+        flags |= ImGuiButtonFlags_Repeat;
+    bool hovered, held;
+    bool pressed = ButtonBehavior(bb, id, &hovered, &held, flags);
+
+    if ((bLongTouch != NULL) && (pressed == true) && ((flags & ImGuiButtonFlags_Repeat) == ImGuiButtonFlags_Repeat))
+    {
+        *bLongTouch = held & hovered;
+    }
+
+    if (flags & ImGuiColorEditFlags_NoAlpha)
+        flags &= ~(ImGuiColorEditFlags_AlphaPreview | ImGuiColorEditFlags_AlphaPreviewHalf);
+
+    ImVec4 col_rgb = col;
+    if (flags & ImGuiColorEditFlags_InputHSV)
+        ColorConvertHSVtoRGB(col_rgb.x, col_rgb.y, col_rgb.z, col_rgb.x, col_rgb.y, col_rgb.z);
+
+    ImVec4 col_rgb_without_alpha(col_rgb.x, col_rgb.y, col_rgb.z, 1.0f);
+    float grid_step = ImMin(size.x, size.y) / 2.99f;
+    float rounding = ImMin(g.Style.FrameRounding, grid_step * 0.5f);
+    ImRect bb_inner = bb;
+    float off = 0.0f;
+    if ((flags & ImGuiColorEditFlags_NoBorder) == 0)
+    {
+        off = -0.75f; // The border (using Col_FrameBg) tends to look off when color is near-opaque and rounding is enabled. This offset seemed like a good middle ground to reduce those artifacts.
+        bb_inner.Expand(off);
+    }
+    if ((flags & ImGuiColorEditFlags_AlphaPreviewHalf) && col_rgb.w < 1.0f)
+    {
+        float mid_x = IM_ROUND((bb_inner.Min.x + bb_inner.Max.x) * 0.5f);
+        RenderColorRectWithAlphaCheckerboard(window->DrawList, ImVec2(bb_inner.Min.x + grid_step, bb_inner.Min.y), bb_inner.Max, GetColorU32(col_rgb), grid_step, ImVec2(-grid_step + off, off), rounding, ImDrawCornerFlags_TopRight | ImDrawCornerFlags_BotRight);
+        window->DrawList->AddRectFilled(bb_inner.Min, ImVec2(mid_x, bb_inner.Max.y), GetColorU32(col_rgb_without_alpha), rounding, ImDrawCornerFlags_TopLeft | ImDrawCornerFlags_BotLeft);
+    }
+    else
+    {
+        // Because GetColorU32() multiplies by the global style Alpha and we don't want to display a checkerboard if the source code had no alpha
+        ImVec4 col_source = (flags & ImGuiColorEditFlags_AlphaPreview) ? col_rgb : col_rgb_without_alpha;
+        if (col_source.w < 1.0f)
+            RenderColorRectWithAlphaCheckerboard(window->DrawList, bb_inner.Min, bb_inner.Max, GetColorU32(col_source), grid_step, ImVec2(off, off), rounding);
+        else
+            window->DrawList->AddRectFilled(bb_inner.Min, bb_inner.Max, GetColorU32(col_source), rounding, ImDrawCornerFlags_All);
+    }
+    RenderNavHighlight(bb, id);
+    if ((flags & ImGuiColorEditFlags_NoBorder) == 0)
+    {
+        if (g.Style.FrameBorderSize > 0.0f)
+            RenderFrameBorder(bb.Min, bb.Max, rounding);
+        else
+            window->DrawList->AddRect(bb.Min, bb.Max, GetColorU32(ImGuiCol_FrameBg), rounding); // Color button are often in need of some sort of border
+    }
+
+    // Drag and Drop Source
+    // NB: The ActiveId test is merely an optional micro-optimization, BeginDragDropSource() does the same test.
+    if (g.ActiveId == id && !(flags & ImGuiColorEditFlags_NoDragDrop) && BeginDragDropSource())
+    {
+        if (flags & ImGuiColorEditFlags_NoAlpha)
+            SetDragDropPayload(IMGUI_PAYLOAD_TYPE_COLOR_3F, &col_rgb, sizeof(float) * 3, ImGuiCond_Once);
+        else
+            SetDragDropPayload(IMGUI_PAYLOAD_TYPE_COLOR_4F, &col_rgb, sizeof(float) * 4, ImGuiCond_Once);
+        ColorButtonLongTouch(desc_id, col, bLongTouch, flags);
+        SameLine();
+        TextEx("Color");
+        EndDragDropSource();
+    }
+
+    // Tooltip
+    if (!(flags & ImGuiColorEditFlags_NoTooltip) && hovered)
+        ColorTooltip(desc_id, &col.x, flags & (ImGuiColorEditFlags__InputMask | ImGuiColorEditFlags_NoAlpha | ImGuiColorEditFlags_AlphaPreview | ImGuiColorEditFlags_AlphaPreviewHalf));
+
+    return pressed;
 }
 */
 
@@ -135,6 +230,43 @@ static GLuint matToTexture(const cv::Mat &mat, GLenum minFilter, GLenum magFilte
     }
 
     return textureID;
+}
+
+cv::Mat markerdetect(cv::Mat image)
+{
+    groundtruth gt;
+    std::unique_lock<std::mutex> lock(grab._pic_lock);
+    const std::string h_matrix_dir = "/home/icey/workspace/Aruco/extrinsic_calibrationfile.yaml";
+    std::string result_dir;
+    const std::string setting_dir = "/home/icey/workspace/Aruco/intrinsic_calibrationfile.yaml";
+    gt.intrinsic(setting_dir);
+    aruco::MarkerDetector MDetector;
+    MDetector.setDictionary("ARUCO");
+
+    gt.undistort(grab.m_image);
+    gt.pnp(h_matrix_dir);
+    for (size_t i = 0; i < gt.markers.size(); i++){ 
+        int id = gt.markers[i].id;
+        switch ( id )
+        {
+            case 0:
+                result_dir = "/home/icey/workspace/Aruco/result_0.txt";
+                break;
+            case 1:
+                result_dir = "/home/icey/workspace/Aruco/result_1.txt";
+                break;
+            case 10:
+                result_dir = "/home/icey/workspace/Aruco/result_10.txt";
+                break;
+            case 16:
+                result_dir = "/home/icey/workspace/Aruco/result_16.txt";
+                break;
+            case 23:
+                result_dir = "/home/icey/workspace/Aruco/result_23.txt";
+                break;
+        }
+    }
+    return image;
 }
 
 int main(int, char**)
@@ -202,7 +334,8 @@ int main(int, char**)
     //bool show_demo_window = true;
     //bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-    //thread mythread(StartGrab);
+    std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+    thread mythread(StartGrab);
     //mythread.join();
     //Grab_image();
     // Main loop
@@ -226,26 +359,29 @@ int main(int, char**)
 
         // 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
         {
-            thread mythread(StartGrab);
+            //thread mythread(StartGrab);
             //mythread.join();
 
             static float f = 0.0f;
             static int counter = 0;
 
             ImGui::Begin("Real-time visual tracking system");                          // Create a window called "Hello, world!" and append into it.
-            int my_image_width = 1920;
-            int my_image_height = 1200;
+            int my_image_width = 960;
+            int my_image_height = 600;
             //GLuint my_image_texture = 0;
             //bool ret = LoadTextureFromFile(grab.m_image, &my_image_texture, &my_image_width, &my_image_height);
+            //ImGui::Button("connect");
             //IM_ASSERT(ret);
-            if (ImGui::Button("connect")){
+            ImGui::SetCursorPos(ImVec2(1000.0f, 80.0f));
+            if (ImGui::Button("connect", ImVec2(90.0f, 40.0f))) {
+                grab.repeat = true;
                 /*
                 if (!capture.read(grab.m_image)) {
                     ImGui::Text("Cannot grab a frame!");
                     break;
                 }
                 */
-                //thread mythread(StartGrab);
+               // thread mythread(StartGrab);
                 //int64_t timestamp = GetTime();
                 //imwrite("./image/" + std::to_string(timestamp) + ".png", grab.m_image);
                 //mythread.join();
@@ -257,17 +393,66 @@ int main(int, char**)
                 //bool show_demo_window = true;
                 //ImGui::ShowDemoWindow(&show_demo_window);
                 //cv::imshow("image", grab.m_image);
-                GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-                ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                //bool repeat = true;
+                //ImGui::ColorButtonLongTouch("connect", ImVec4(1,1,1,1), &repeat, 0, ImVec2(90.0f, 40.0f));
+                /*
+                {
+                    std::unique_lock<std::mutex> lock(grab._pic_lock);
+                    GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                    cv::waitKey(50); 
+                    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                }
+                */
+                //cv::waitKey(5);
             }
+            
+            bool a = grab.repeat;
+            if (a)
+            {
+                std::unique_lock<std::mutex> lock(grab._pic_lock);
+                GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                cv::waitKey(50);
+                ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+            }
+
+            float x = 0.5;
+            float y = 0.5;
+            //ImGui::SameLine(1000.0f);
+            static char buf[32] = "001";
+            ImGui::SetCursorPos(ImVec2(1000.0f, 40.0f));
+            ImGui::InputTextWithHint("ID","Please input ID here:", buf, IM_ARRAYSIZE(buf));
+            //ImGui::SetCursorPos(ImVec2(1000.0f, 80.0f));
+            //ImGui::SameLine();
+            //ImGui::Button("connect", ImVec2(90.0f, 40.0f));
+            ImGui::SetCursorPos(ImVec2(1110.0f, 80.0f));
+            //ImGui::SameLine(1110.0f);
+            ImGui::Button("verify", ImVec2(90.0f, 40.0f));
+            ImGui::SetCursorPos(ImVec2(1000.0f, 140.0f));
+            ImGui::Button("calibration", ImVec2(90.0f, 40.0f));
+            //ImGui::SetCursorPos(ImVec2(1000.0f, 540.0f));
+            ImGui::SameLine(1110.0f);
+            if (ImGui::Button("track", ImVec2(90.0f, 40.0f)))
+            {
+                grab.repeat = true;
+            }
+            bool b = grab.repeat;
+            if (b)
+            {
+                std::unique_lock<std::mutex> lock(grab._pic_lock);
+                cv::Mat image = markerdetect(grab.m_image);
+                GLuint my_image_texture = matToTexture(image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                cv::waitKey(50);
+                ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+            }
+
+            ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+            ImGui::BeginChild("Scrolling");
+            ImGui::Text("To show the marker's location, x:%.3f, y:%.3f", &x, &y);
+            ImGui::EndChild();
             //bool show_demo_window = true;
             //ImGui::ShowDemoWindow(&show_demo_window);
-            //GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-            //ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
-
-            ImGui::Button("verify");
-            ImGui::Button("calibration");
-            ImGui::Button("track");
 /*
             ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
             ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state

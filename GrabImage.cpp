@@ -1,8 +1,21 @@
 #include "Grab_ImageCallback.h"
+#include <chrono> 
+#include <mutex>
 Grabimage grab;
 
 // 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
+
+int64_t GetTime(void)
+{
+    struct timespec rt;
+    clock_gettime(CLOCK_MONOTONIC, &rt);
+    int64_t t;                                                            
+    t = (int64_t)(rt.tv_sec) * 1000000 + rt.tv_nsec / 1000;
+
+    return t;
+}
+
 
 void PressEnterToExit(void)
 {
@@ -35,7 +48,7 @@ bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo)
     }
     else if (pstMVDevInfo->nTLayerType == MV_USB_DEVICE)
     {
-        printf("Device Model Name: %s\n", pstMVDevInfo->SpecialInfo.stUsb3VInfo.chModelName);
+        printf("Device Model Nameusing namespace std::chrono_literals;: %s\n", pstMVDevInfo->SpecialInfo.stUsb3VInfo.chModelName);
         printf("UserDefinedName: %s\n\n", pstMVDevInfo->SpecialInfo.stUsb3VInfo.chUserDefinedName);
     }
     else
@@ -49,7 +62,6 @@ bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo)
 static void* WorkThread(void* pUser)
 {
     int nRet = MV_OK;
-
     // ch:获取数据包大小 | en:Get payload size
     MVCC_INTVALUE stParam;
     memset(&stParam, 0, sizeof(MVCC_INTVALUE));
@@ -79,11 +91,18 @@ static void* WorkThread(void* pUser)
         nRet = MV_CC_GetOneFrameTimeout(pUser, pData, nDataSize, &stImageInfo, 1000);
         if (nRet == MV_OK)
         {
+            
+            std::unique_lock<std::mutex> lock(grab._pic_lock);
+            cv::waitKey(50);
             grab.m_image = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
-            int64_t timestamp = GetTime();
-            imwrite("./demo/image/" + std::to_string(timestamp) + ".png", grab.m_image);
-            printf("GetOneFrame, Width[%d], Height[%d], nFrameNum[%d]\n", 
-                stImageInfo.nWidth, stImageInfo.nHeight, stImageInfo.nFrameNum);
+            
+                //imshow("image", grab.m_image);
+            
+            //int64_t timestamp = GetTime();
+            //imwrite("./demo/image/" + std::to_string(timestamp) + ".png", grab.m_image);
+            //cv::waitKey(5);
+            //printf("GetOneFrame, Width[%d], HeiStartGrabght[%d], nFrameNum[%d]\n", 
+                //stImageInfo.nWidth, stImageInfo.nHeight, stImageInfo.nFrameNum);
         }
         else{
             printf("No data[%x]\n", nRet);
@@ -96,6 +115,7 @@ static void* WorkThread(void* pUser)
 
 int StartGrab()
 {
+    //using namespace std::chrono_literals;
     int nRet = MV_OK;
 
     void* handle = NULL;
@@ -123,7 +143,7 @@ int StartGrab()
                 if (NULL == pDeviceInfo)
                 {
                     break;
-                } 
+                }
                 PrintDeviceInfo(pDeviceInfo);            
             }  
         } 
@@ -143,7 +163,8 @@ int StartGrab()
             break;
         }
 
-        // 选择设备并创建句柄
+        // 选择设备并创建句柄std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+
         // select device and create handle
         nRet = MV_CC_CreateHandle(&handle, stDeviceList.pDeviceInfo[nIndex]);
         if (MV_OK != nRet)
@@ -153,7 +174,7 @@ int StartGrab()
         }
 
         // 打开设备
-        // open device
+        // open deviceStartGrab
         nRet = MV_CC_OpenDevice(handle);
         if (MV_OK != nRet)
         {
@@ -243,7 +264,13 @@ int StartGrab()
             handle = NULL;
         }
     }
-
+    
+    std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+    
+    //while(1){
+        //
+        //std::this_thread::sleep_for(1000ms);
+    //}
     printf("exit\n");
     return 0;
 }
