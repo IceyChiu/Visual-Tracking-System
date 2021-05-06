@@ -5,8 +5,9 @@ SET(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
 set(CMAKE_CXX_FLAGES_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 set(THREADS_PREFER_PTHERAD_FLAG ON)
+#set(OpenCV_DIR /usr/local/)
 
-find_package(OpenCV 4.2 REQUIRED )
+find_package(OpenCV REQUIRED )
 find_package(OpenGL REQUIRED )
 find_package(glfw3 REQUIRED )
 find_package(GLEW REQUIRED)
@@ -41,6 +42,7 @@ add_executable(demo test.cpp
     ../GrabImage.cpp
     )
 add_definitions("-DIMGUI_IMPL_OPENGL_LOADER_GLEW")
-target_link_libraries(demo "/opt/MVS/lib/64/libMvCameraControl.so" ${OpenCV_LIBS} ${EIGEN3_LIBS}
-${aruco_LIBS} GL GLU GLEW::GLEW glfw3 X11 Xxf86vm Xrandr pthread Xi dl Xinerama Xcursor Threads::Threads)
+message(STATUS "OpenCV_LIBS=${OpenCV_LIBRARIES}")
+target_link_libraries(demo  ${OpenCV_LIBRARIES} dl pthread glfw3 "/opt/MVS/lib/64/libMvCameraControl.so" X11 Xxf86vm Xrandr Xi Xinerama Xcursor GL GLU GLEW ${aruco_LIBS})
+
 

@@ -7,11 +7,12 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/opencv.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <math.h>
 #include <chrono> 
 #include <boost/lexical_cast.hpp>
 #include <thread>
-#include <fstream>
+#include <iostream>
 #include <stdio.h> 
 #include <time.h>
 #include <mutex>
@@ -28,7 +29,9 @@ public:
     uint64_t systime;
     mutex _mutex_locker;
     mutex _pic_lock;
+    mutex _marker_lock;
     bool repeat;
+    bool marker;
 };
 void Grab_image();
 int StartGrab();

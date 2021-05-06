@@ -6,20 +6,20 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <iostream>
-#include <unistd.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <unistd.h>
+//#include <iostream>
+//#include <unistd.h>
 #include <GL/glew.h>            // Initialize with gl3wInit()
 // Include glfw3.h after our OpenGL definitions
 #include <GLFW/glfw3.h>
-#include <opencv2/opencv.hpp>
+//#include <opencv2/opencv.hpp>
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "../Grab_ImageCallback.h"
-#include <boost/lexical_cast.hpp>
-#include "../../Aruco/include/marker_detection.h"
+//#include <boost/lexical_cast.hpp>
+#include "../marker_detection.h"
 
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
@@ -235,7 +235,6 @@ static GLuint matToTexture(const cv::Mat &mat, GLenum minFilter, GLenum magFilte
 cv::Mat markerdetect(cv::Mat image)
 {
     groundtruth gt;
-    std::unique_lock<std::mutex> lock(grab._pic_lock);
     const std::string h_matrix_dir = "/home/icey/workspace/Aruco/extrinsic_calibrationfile.yaml";
     std::string result_dir;
     const std::string setting_dir = "/home/icey/workspace/Aruco/intrinsic_calibrationfile.yaml";
@@ -362,8 +361,8 @@ int main(int, char**)
             //thread mythread(StartGrab);
             //mythread.join();
 
-            static float f = 0.0f;
-            static int counter = 0;
+            //static float f = 0.0f;
+            //static int counter = 0;
 
             ImGui::Begin("Real-time visual tracking system");                          // Create a window called "Hello, world!" and append into it.
             int my_image_width = 960;
@@ -416,8 +415,8 @@ int main(int, char**)
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
             }
 
-            float x = 0.5;
-            float y = 0.5;
+            //float x = 0.5;
+            //float y = 0.5;
             //ImGui::SameLine(1000.0f);
             static char buf[32] = "001";
             ImGui::SetCursorPos(ImVec2(1000.0f, 40.0f));
@@ -434,26 +433,34 @@ int main(int, char**)
             ImGui::SameLine(1110.0f);
             if (ImGui::Button("track", ImVec2(90.0f, 40.0f)))
             {
-                grab.repeat = true;
+                grab.marker = true;
             }
-            bool b = grab.repeat;
+            bool b = grab.marker;
             if (b)
             {
+                groundtruth gt;
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
                 cv::Mat image = markerdetect(grab.m_image);
                 GLuint my_image_texture = matToTexture(image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
                 cv::waitKey(50);
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                //static float x = gt.pt[0];
+                //static float y = gt.pt[1];
+                ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+                ImGui::BeginChild("Scrolling");
+                ImGui::Text("To show the marker's location, x:%.6f, y:%.6f", gt.pt[0], gt.pt[1]);
+                ImGui::EndChild();
             }
 
+            /*
             ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
             ImGui::BeginChild("Scrolling");
             ImGui::Text("To show the marker's location, x:%.3f, y:%.3f", &x, &y);
             ImGui::EndChild();
             //bool show_demo_window = true;
             //ImGui::ShowDemoWindow(&show_demo_window);
-/*
+
             ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
             ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
             ImGui::Checkbox("Another Window", &show_another_window);
@@ -462,7 +469,7 @@ int main(int, char**)
             ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
 
             if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-                counter++;
+            ImGuicounter++;
             ImGui::SameLine();
             ImGui::Text("counter = %d", counter);
 
