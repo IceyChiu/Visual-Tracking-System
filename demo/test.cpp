@@ -4,6 +4,8 @@
 // Read online: https://github.com/ocornut/imgui/tree/master/docs
 
 #include "imgui.h"
+#include "imgui_internal.h"
+#include "imgInspect.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 //#include <stdio.h>
@@ -20,6 +22,7 @@
 #include "../Grab_ImageCallback.h"
 //#include <boost/lexical_cast.hpp>
 #include "../marker_detection.h"
+#include <string> 
 
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
@@ -172,6 +175,14 @@ bool ImGui::ColorButtonLongTouch(const char* desc_id, const ImVec4& col, bool* b
     return pressed;
 }
 */
+typedef const unsigned char* byte;
+
+byte matToBytes(cv::Mat image)
+{
+   int size = image.rows*image.cols;
+   byte bytes[size];
+   std::memcpy(bytes,image.data,size * sizeof(byte));
+}
 
 static GLuint matToTexture(const cv::Mat &mat, GLenum minFilter, GLenum magFilter, GLenum wrapFilter) {
     // Generate a number for our textureID's unique handle
@@ -232,7 +243,12 @@ static GLuint matToTexture(const cv::Mat &mat, GLenum minFilter, GLenum magFilte
     return textureID;
 }
 
-cv::Mat markerdetect(cv::Mat image)
+void excalibrate()
+{
+
+}
+
+cv::Mat markerdetect(cv::Mat image, cv::Point2f *centerpoint)
 {
     groundtruth gt;
     const std::string h_matrix_dir = "/home/icey/workspace/Aruco/extrinsic_calibrationfile.yaml";
@@ -244,6 +260,11 @@ cv::Mat markerdetect(cv::Mat image)
 
     gt.undistort(grab.m_image);
     gt.pnp(h_matrix_dir);
+    centerpoint->x = gt.point.at<float> (0, 0);
+    centerpoint->y = gt.point.at<float> (0, 1);
+    std::cout << "gt.point: " << gt.point.at<float> (0, 0) << " , " << gt.point.at<float> (0, 1) << std::endl;
+    std::cout << "centerpoint: " << centerpoint << std::endl;
+    /*
     for (size_t i = 0; i < gt.markers.size(); i++){ 
         int id = gt.markers[i].id;
         switch ( id )
@@ -265,6 +286,7 @@ cv::Mat markerdetect(cv::Mat image)
                 break;
         }
     }
+    */
     return image;
 }
 
@@ -428,28 +450,74 @@ int main(int, char**)
             //ImGui::SameLine(1110.0f);
             ImGui::Button("verify", ImVec2(90.0f, 40.0f));
             ImGui::SetCursorPos(ImVec2(1000.0f, 140.0f));
-            ImGui::Button("calibration", ImVec2(90.0f, 40.0f));
+            if(ImGui::Button("calibration", ImVec2(90.0f, 40.0f)))
+            {
+                grab.calibrate = true;
+                grab.calibrate_img = grab.m_image;
+                cv::imwrite("./excalib.png", grab.calibrate_img);
+            }
+            bool b = grab.calibrate;
+            if(b)
+            {
+                std::unique_lock<std::mutex> lock(grab._pic_lock);
+                cv::Mat img = cv::imread("./excalib.png");
+                std::cout << "1" << std::endl;
+                byte imgbyte = matToBytes(img);
+                std::cout << "2" << std::endl;
+                GLuint my_image_texture = matToTexture(img, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                std::cout << "3" << std::endl;
+                ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
+                ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
+                mouseUVCoord.y = 1.f - mouseUVCoord.y;
+                        
+                if (io.KeyShift && io.MouseDown[0] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f)
+                {
+                    int width = my_image_width;
+                    int height = my_image_height;
+                    ImageInspect::inspect(width, height, imgbyte, mouseUVCoord, ImVec2(32, 20));
+                }
+            }
             //ImGui::SetCursorPos(ImVec2(1000.0f, 540.0f));
             ImGui::SameLine(1110.0f);
             if (ImGui::Button("track", ImVec2(90.0f, 40.0f)))
             {
                 grab.marker = true;
             }
-            bool b = grab.marker;
-            if (b)
+            bool c = grab.marker;
+            if (c)
             {
                 groundtruth gt;
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
-                cv::Mat image = markerdetect(grab.m_image);
+                cv::Point2f centerpoint;
+                cv::Mat image = markerdetect(grab.m_image, &centerpoint);
+                std::cout << "center.size()" << centerpoint << std::endl;
+                //std::cout << "gt.point3: " << gt.point.at<float> (0, 0) << ", " << gt.point.at<float> (0, 1) << std::endl;
+                //float x;
+                //float y;
+                std::cout << "1" << std::endl;
+                //x = gt.point.at<float> (0, 0);
+                std::cout << "1" << std::endl;
+                //y = gt.point.at<float> (0, 1);
                 GLuint my_image_texture = matToTexture(image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
                 cv::waitKey(50);
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
-                //static float x = gt.pt[0];
+                //float x = 1.0f;
+                //int y = 2;
+                //string x(std::to_string(gt.pt[0]));
+                //string y(std::to_string(gt.pt[1]));
                 //static float y = gt.pt[1];
                 ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
                 ImGui::BeginChild("Scrolling");
-                ImGui::Text("To show the marker's location, x:%.6f, y:%.6f", gt.pt[0], gt.pt[1]);
+                std::cout << "1" << std::endl;
+                //float x = gt.point.at<float> (0, 0);
+                //float y = gt.point.at<float> (0, 1);
+                //ImGui::Text("To show the marker's location, x:%f, y:%f; Application average %.3f ms/frame (%.1f FPS)", 
+                //            0.5, 0.5, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+                ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
+                std::cout << "1" << std::endl;
                 ImGui::EndChild();
             }
 

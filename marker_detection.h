@@ -77,7 +77,7 @@ public:
         }
     }
     
-    void pnp ( const std::string& h_matrix_dir) {
+    void pnp ( const std::string& h_matrix_dir ) {
         cv::FileStorage fs_homography ( h_matrix_dir, cv::FileStorage::READ );
         cv::Mat cvH;
         fs_homography["homograph_matrix"] >> cvH;
@@ -91,7 +91,10 @@ public:
             cvH.at<double> ( 2, 0 ), cvH.at<double> ( 2, 1 ), cvH.at<double> ( 2, 2 );
         pt = H * position;
         pt = pt / pt[2];
+        point = ( cv::Mat_<float> ( 1, 3 ) << pt[0], pt[1], pt[2]);
         std::cout << "pt: " << pt << std::endl;
+        std::cout << "point: " << point << std::endl;
+        //return point;
     }
     
     float fx;
@@ -104,9 +107,13 @@ public:
     float p1;
     float p2;
     float k3;
+
+    //float x;
+    //float y;
     
     cv::Mat K;
     cv::Mat dist;
+    cv::Mat point;
 
     Eigen::Matrix<float, 3, 3> H;
     cv::Mat cvH;

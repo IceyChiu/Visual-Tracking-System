@@ -32,6 +32,8 @@ public:
     mutex _marker_lock;
     bool repeat;
     bool marker;
+    bool calibrate;
+    cv::Mat calibrate_img;
 };
 void Grab_image();
 int StartGrab();
