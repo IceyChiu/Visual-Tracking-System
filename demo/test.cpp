@@ -175,6 +175,38 @@ bool ImGui::ColorButtonLongTouch(const char* desc_id, const ImVec4& col, bool* b
     return pressed;
 }
 */
+cv::Mat convertTo3Channels(const cv::Mat& binImg)
+{
+    cv::Mat three_channel = cv::Mat::zeros(binImg.rows,binImg.cols,CV_8UC3);
+    std::vector<cv::Mat> channels;
+    for (int i=0;i<3;i++)
+    {
+        channels.push_back(binImg);
+    }
+    merge(channels,three_channel);
+    return three_channel;
+}
+
+cv::Mat convertto4(cv::Mat src)
+{
+    std::vector<cv::Mat> rgb3Channels(3);
+    split(src, rgb3Channels);
+
+    cv::Mat zero_mat = cv::Mat::zeros(Size(src.cols, src.rows), CV_8UC1);
+    //cv::Mat roi(zero_mat, Rect(100, 2, 1, 280));
+    //roi = Scalar(0, 0, 0);
+
+    std::vector<cv::Mat> channels_4;
+    channels_4.push_back(rgb3Channels[0]);
+    channels_4.push_back(rgb3Channels[1]);
+    channels_4.push_back(rgb3Channels[2]);
+    channels_4.push_back(zero_mat);
+
+    cv::Mat dst;
+    merge(channels_4, dst);
+    return dst;
+}
+
 typedef const unsigned char* byte;
 
 byte matToBytes(cv::Mat image)
@@ -219,6 +251,18 @@ static GLuint matToTexture(const cv::Mat &mat, GLenum minFilter, GLenum magFilte
     {
         inputColourFormat = GL_LUMINANCE;
     }
+
+    if (mat.channels() == 4)
+	{
+		inputColourFormat = GL_BGRA;
+	}
+    GLenum datatype = GL_UNSIGNED_BYTE;
+	if(mat.depth() == CV_32F) datatype = GL_FLOAT;
+	else if(mat.depth() == CV_64F) datatype = GL_DOUBLE;
+	else if(mat.depth() == CV_32S) datatype = GL_INT;
+	else if(mat.depth() == CV_16U) datatype = GL_UNSIGNED_SHORT;
+	else if(mat.depth() == CV_16S) datatype = GL_SHORT;
+	else if(mat.depth() == CV_8S)  datatype = GL_BYTE;
 
     // Create the texture
     glTexImage2D(GL_TEXTURE_2D,     // Type of texture
@@ -387,8 +431,8 @@ int main(int, char**)
             //static int counter = 0;
 
             ImGui::Begin("Real-time visual tracking system");                          // Create a window called "Hello, world!" and append into it.
-            int my_image_width = 960;
-            int my_image_height = 600;
+            int my_image_width = 1920;
+            int my_image_height = 1200;
             //GLuint my_image_texture = 0;
             //bool ret = LoadTextureFromFile(grab.m_image, &my_image_texture, &my_image_width, &my_image_height);
             //ImGui::Button("connect");
@@ -460,23 +504,28 @@ int main(int, char**)
             if(b)
             {
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
-                cv::Mat img = cv::imread("./excalib.png");
+                //cv::Mat img = cv::imread("./excalib.png");
+                cv::Mat img = cv::imread("/home/icey/share/extrinsic/build/data2.bmp", 0);
                 std::cout << "1" << std::endl;
-                byte imgbyte = matToBytes(img);
+                //cv::cvtColor(img, img, COLOR_GRAY2RGB);
+                cv::Mat img3 = convertTo3Channels(img);
+                cv::Mat img4 = convertto4(img3);
+                const unsigned char* imgbyte = img.data;
                 std::cout << "2" << std::endl;
-                GLuint my_image_texture = matToTexture(img, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                GLuint my_image_texture = matToTexture(img4, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
                 std::cout << "3" << std::endl;
                 ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
                 ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
-                mouseUVCoord.y = 1.f - mouseUVCoord.y;
+                //mouseUVCoord.y = 1.f - mouseUVCoord.y;
                         
                 if (io.KeyShift && io.MouseDown[0] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f)
                 {
                     int width = my_image_width;
                     int height = my_image_height;
-                    ImageInspect::inspect(width, height, imgbyte, mouseUVCoord, ImVec2(32, 20));
+                    ImageInspect::inspect(width, height, imgbyte, mouseUVCoord, ImVec2(9, 9));
                 }
             }
             //ImGui::SetCursorPos(ImVec2(1000.0f, 540.0f));

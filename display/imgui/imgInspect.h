@@ -125,7 +125,7 @@ namespace ImageInspect
 
     inline void inspect(const int width,
                         const int height,
-                        const unsigned char* const bits,
+                        const unsigned char* bits,
                         ImVec2 mouseUVCoord,
                         ImVec2 displayedTextureSize)
     {
@@ -157,9 +157,9 @@ namespace ImageInspect
         ImGui::SameLine();
 
         // center quad
-        const ImVec2 pos = ImVec2(pickRc.Min.x + float(zoomSize) * quadSize.x, pickRc.Min.y + float(zoomSize) * quadSize.y);
+        const ImVec2 pos = ImVec2( pickRc.Min.x + float(zoomSize) * quadSize.x, pickRc.Min.y + float(zoomSize) * quadSize.y );
         draw_list->AddRect(pos, ImVec2(pos.x + quadSize.x, pos.y + quadSize.y), 0xFF0000FF, 0.f, 15, 2.f);
-
+        /*
         // normal direction
         ImGui::InvisibleButton("AndOneMore", ImVec2(zoomRectangleWidth, zoomRectangleWidth));
         ImRect normRc(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
@@ -173,22 +173,24 @@ namespace ImageInspect
                 const float nx = float(texel & 0xFF) / 128.f - 1.f;
                 const float ny = float((texel & 0xFF00)>>8) / 128.f - 1.f;
                 const ImRect rc(posQuad, ImVec2(posQuad.x + quadSize.x, posQuad.y + quadSize.y));
-                drawNormal(draw_list, rc, nx, ny);
+                //drawNormal(draw_list, rc, nx, ny);
             }
         }
+        */
 
 
 
         ImGui::EndGroup();
         ImGui::SameLine();
         ImGui::BeginGroup();
-        uint32_t texel = ((uint32_t*)bits)[(basey - zoomSize * 2 - 1) * width + basex];
-        ImVec4 color = ImColor(texel);
-        ImVec4 colHSV;
-        ImGui::ColorConvertRGBtoHSV(color.x, color.y, color.z, colHSV.x, colHSV.y, colHSV.z);
+        //uint32_t texel = ((uint32_t*)bits)[(basey - zoomSize * 2 - 1) * width + basex];
+        //ImVec4 color = ImColor(texel);
+        //ImVec4 colHSV;
+        //ImGui::ColorConvertRGBtoHSV(color.x, color.y, color.z, colHSV.x, colHSV.y, colHSV.z);
         ImGui::Text("U %1.3f V %1.3f", mouseUVCoord.x, mouseUVCoord.y);
         ImGui::Text("Coord %d %d", int(mouseUVCoord.x * width), int(mouseUVCoord.y * height));
         ImGui::EndGroup();
+        //histogram(width, height, bits);
         ImGui::EndTooltip();
     }
 } // namespace ImageInspect
