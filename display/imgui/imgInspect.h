@@ -123,17 +123,28 @@ namespace ImageInspect
         draw_list->AddLine(rc.GetCenter(), ImVec2(rc.GetCenter().x + x * rc.GetWidth() / 2.f, rc.GetCenter().y+ y * rc.GetWidth() / 2.f), 0xFF0000FF, 2.f);
     }
 
+
     inline void inspect(const int width,
                         const int height,
-                        const unsigned char* bits,
+                        const unsigned char* const bits,
                         ImVec2 mouseUVCoord,
                         ImVec2 displayedTextureSize)
     {
         ImGui::BeginTooltip();
         ImGui::BeginGroup();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
-        static const float zoomRectangleWidth = 160.f;
-
+        static const float zoomRectangleWidth = 180.f;
+	for (int i = 0; i < 300; i++ ){	
+		std::cout << "(uint8_t*)bits " << (uint8_t)bits[i] << std::endl;}
+    	typedef union four_ch{
+        	uint8_t bytes[4];
+        	uint32_t pixel;
+    	}four_ch_t;
+    
+     	four_ch_t pix_4;
+	pix_4.bytes[3] = 255;
+     	
+     	
         // bitmap zoom
         std::cout << "1" << std::endl;
         ImGui::InvisibleButton("AnotherInvisibleMan", ImVec2(zoomRectangleWidth, zoomRectangleWidth));
@@ -142,16 +153,28 @@ namespace ImageInspect
         static int zoomSize = 4;
         const float quadWidth = zoomRectangleWidth / float(zoomSize * 2 + 1);
         ImVec2 quadSize(quadWidth, quadWidth);
+        std::cout << "mouseUVCoord.x: " << mouseUVCoord.x << std::endl;
+	std::cout << "mouseUVCoord.y: " << mouseUVCoord.y << std::endl;
         const int basex = ImClamp(int(mouseUVCoord.x * width), zoomSize, width - zoomSize);
         const int basey = ImClamp(int(mouseUVCoord.y * height), zoomSize, height - zoomSize);
-        std::cout << "2" << std::endl;
+	
+        std::cout << "basex: " << basex << std::endl;
+	std::cout << "basey: " << basey << std::endl;
         for (int y = -zoomSize; y <= zoomSize; y++)
         {
             for (int x = -zoomSize; x <= zoomSize; x++)
             {
-                uint32_t texel = ((uint32_t*)bits)[(basey - y) * width + x + basex];
+                uint32_t texel = ((uint32_t*)bits)[(basey + y) * width + x + basex];
+		
                 ImVec2 pos = ImVec2(pickRc.Min.x + float(x + zoomSize) * quadSize.x, pickRc.Min.y + float(y + zoomSize) * quadSize.y);
-                draw_list->AddRectFilled(pos, ImVec2(pos.x + quadSize.x, pos.y + quadSize.y), texel);
+		//std::cout << "pos: " << pos.x << ", " << pos.y << std::endl;
+                //for(uint8_t i=0; i<3; i++){
+        		//pix_4.bytes[i] = texel;
+     		//}
+		//std::cout << "pix_4: " << pix_4.pixel << std::endl;
+		//draw_list->AddRectFilled(pos, ImVec2(pos.x + quadSize.x, pos.y + quadSize.y), IM_COL32(texel,texel,texel,255));
+		draw_list->AddRectFilled(pos, ImVec2(pos.x + quadSize.x, pos.y + quadSize.y), texel);
+		
             }
         }
         ImGui::SameLine();

@@ -37,6 +37,7 @@ static void glfw_error_callback(int error, const char* description)
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
+
 /*
 int64_t GetTime(void)
 {
@@ -431,8 +432,8 @@ int main(int, char**)
             //static int counter = 0;
 
             ImGui::Begin("Real-time visual tracking system");                          // Create a window called "Hello, world!" and append into it.
-            int my_image_width = 1920;
-            int my_image_height = 1200;
+            int my_image_width = 960;
+            int my_image_height = 600;
             //GLuint my_image_texture = 0;
             //bool ret = LoadTextureFromFile(grab.m_image, &my_image_texture, &my_image_width, &my_image_height);
             //ImGui::Button("connect");
@@ -506,19 +507,53 @@ int main(int, char**)
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
                 //cv::Mat img = cv::imread("./excalib.png");
                 cv::Mat img = cv::imread("/home/icey/share/extrinsic/build/data2.bmp", 0);
-                std::cout << "1" << std::endl;
+                cv::Mat image = cv::imread("/home/icey/图片/Screenshot from 2021-02-05 11-04-16.png", cv::IMREAD_UNCHANGED);
+                //std::cout << "channel: " << img.channels() << "; type: " << img.type() << std::endl;
+                //std::cout << "1" << std::endl;
                 //cv::cvtColor(img, img, COLOR_GRAY2RGB);
                 cv::Mat img3 = convertTo3Channels(img);
                 cv::Mat img4 = convertto4(img3);
-                const unsigned char* imgbyte = img.data;
+                std::cout << "channel: " << img4.channels() << "; type: " << img4.type() << std::endl;
+                const unsigned char* const imgbyte = img.data;
                 std::cout << "2" << std::endl;
-                GLuint my_image_texture = matToTexture(img4, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                GLuint my_image_texture = matToTexture(img, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
                 
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                
+                ImVec2 pos = ImGui::GetCursorScreenPos();
+                ImVec2 uv_min = ImVec2(0.0f, 0.0f);                 // Top-left
+                ImVec2 uv_max = ImVec2(1.0f, 1.0f);                 // Lower-right
+                ImVec4 tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);   // No tint
+                ImVec4 border_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); // 50% opaque white
+                
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                
+                if (ImGui::IsItemHovered())
+                {
+                    ImGui::BeginTooltip();
+                    float region_sz = 9.0f;
+                    float region_x = io.MousePos.x - pos.x - region_sz * 0.5f;
+                    float region_y = io.MousePos.y - pos.y - region_sz * 0.5f;
+                    float zoom = 20.0f;
+                    if (region_x < 0.0f) { region_x = 0.0f; }
+                    else if (region_x > my_image_width - region_sz) { region_x = my_image_width - region_sz; }
+                    if (region_y < 0.0f) { region_y = 0.0f; }
+                    else if (region_y > my_image_height - region_sz) { region_y = my_image_height - region_sz; }
+                    //ImGui::Text("Min: (%.2f, %.2f)", region_x, region_y);
+                    ImGui::Text("coord: (%.2f, %.2f)", region_x + 0.5 * region_sz, region_y + 0.5 * region_sz);
+                    ImVec2 uv0 = ImVec2((region_x) / my_image_width, (region_y) / my_image_height);
+                    ImVec2 uv1 = ImVec2((region_x + region_sz) / my_image_width, (region_y + region_sz) / my_image_height);
+                    ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(region_sz * zoom, region_sz * zoom), uv0, uv1, tint_col, border_col);
+                    const ImVec2 pos = ImVec2( region_x + (region_sz - 1.0) / 2 * zoom , region_y + (region_sz - 1.0) / 2 * zoom );
+                    ImDrawList* draw_list = ImGui::GetWindowDrawList();
+                    draw_list->AddRect(pos, ImVec2(pos.x + zoom, pos.y + zoom), 0xFF0000FF, 0.f, 15, 2.f);
+                    ImGui::EndTooltip();
+                }
+                /*
                 std::cout << "3" << std::endl;
                 ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
                 ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
+                //mouseUVCoord.x = 1.f - mouseUVCoord.x;
                 //mouseUVCoord.y = 1.f - mouseUVCoord.y;
                         
                 if (io.KeyShift && io.MouseDown[0] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f)
@@ -526,7 +561,7 @@ int main(int, char**)
                     int width = my_image_width;
                     int height = my_image_height;
                     ImageInspect::inspect(width, height, imgbyte, mouseUVCoord, ImVec2(9, 9));
-                }
+                }*/
             }
             //ImGui::SetCursorPos(ImVec2(1000.0f, 540.0f));
             ImGui::SameLine(1110.0f);
