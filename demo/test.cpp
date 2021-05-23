@@ -295,7 +295,7 @@ void excalibrate()
 cv::Mat markerdetect(cv::Mat image, cv::Point2f *centerpoint)
 {
     //groundtruth gt;
-    const std::string h_matrix_dir = "/home/icey/workspace/Aruco/extrinsic_calibrationfile.yaml";
+    const std::string h_matrix_dir = "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml";
     std::string result_dir;
     const std::string setting_dir = "/home/icey/workspace/Aruco/intrinsic_calibrationfile.yaml";
     gt.intrinsic(setting_dir);
@@ -567,7 +567,7 @@ int main(int, char**)
                     */
                     ImGui::EndTooltip();
                     if (io.MouseDown[1] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f){
-                        ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 5.0f, ImColor(255,255,0,255));
+                        //ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 5.0f, ImColor(255,255,0,255));
                         cv::Point2f four(region_x + 0.5f * region_sz, region_y + 0.5f * region_sz);
                         std::cout << "four: " << four << std::endl;
                         //gt.four_pixel.erase(gt.four_pixel.begin());
@@ -610,8 +610,18 @@ int main(int, char**)
                         cv::FileStorage fs ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::WRITE );
                         cv::Mat cvH = ( cv::Mat_<double> ( 3, 3 ) << H.at<double> ( 0,0 ), H.at<double> ( 0,1 ), H.at<double> ( 0,2 ), 
                                         H.at<double> ( 1,0 ), H.at<double> ( 1,1 ), H.at<double> ( 1,2 ), H.at<double> ( 2,0 ), H.at<double> ( 2,1 ), H.at<double> ( 2,2 ) );
+                        float a = gt.four_pixel[0].x;
+                        float b = gt.four_pixel[0].y;
+                        float c = gt.four_pixel[1].x;
+                        float d = gt.four_pixel[1].y;
+                        float e = gt.four_pixel[2].x;
+                        float f = gt.four_pixel[2].y;
+                        float g = gt.four_pixel[3].x;
+                        float h = gt.four_pixel[3].y;
+                        
+                        cv::Mat pix = ( cv::Mat_<float> (1, 8) << a, b, c, d, e, f, g, h);
                         fs << "homograph_matrix" << cvH;
-                        fs << "four_pixel" << gt.four_pixel;
+                        fs << "four_pixel" << pix;
                         fs.release();
                     }
                 }
