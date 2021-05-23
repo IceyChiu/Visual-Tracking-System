@@ -127,7 +127,6 @@ public:
     //std::vector<cv::Point2f> four_pixel;
     std::vector<cv::Point2f> four_pixel = std::vector<cv::Point2f>(4);
     std::vector<cv::Point2f> undist = std::vector<cv::Point2f>(4);
-    std::vector<cv::Point3f> points = std::vector<cv::Point3f>(4);
 };  // class groundtruth
 
 extern groundtruth gt;

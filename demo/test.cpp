@@ -333,6 +333,15 @@ cv::Mat markerdetect(cv::Mat image, cv::Point2f *centerpoint)
     */
     return image;
 }
+static bool cmp(const cv::Point2f &A, const cv::Point2f &B){
+    if (A.x < B.x && A.y < B.y)
+        return true;
+    else if(A.x < B.x && A.y >= B.y)
+        return true;
+    else
+        return false;
+}
+
 
 int main(int, char**)
 {
@@ -490,17 +499,6 @@ int main(int, char**)
             //ImGui::SetCursorPos(ImVec2(1000.0f, 80.0f));
             //ImGui::SameLine();
             //ImGui::Button("connect", ImVec2(90.0f, 40.0f));
-            ImGui::SetCursorPos(ImVec2(1110.0f, 80.0f));
-            //ImGui::SameLine(1110.0f);
-            if(ImGui::Button("verify", ImVec2(90.0f, 40.0f)))
-            {
-                grab.verify = true;
-            }
-            bool d = grab.verify;
-            if (d)
-            {
-             
-            }
             ImGui::SetCursorPos(ImVec2(1000.0f, 140.0f));
             if(ImGui::Button("calibration", ImVec2(90.0f, 40.0f)))
             {
@@ -572,11 +570,13 @@ int main(int, char**)
                         ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 5.0f, ImColor(255,255,0,255));
                         cv::Point2f four(region_x + 0.5f * region_sz, region_y + 0.5f * region_sz);
                         std::cout << "four: " << four << std::endl;
-                        gt.four_pixel.erase(gt.four_pixel.begin());
+                        //gt.four_pixel.erase(gt.four_pixel.begin());
                         gt.four_pixel.push_back(four);
                         std::cout << "four_pixel: " << gt.four_pixel << std::endl;
                         //gt.four_pixel.erase(gt.four_pixel.begin());
                         //ImGui::GetForegroundDrawList()->AddCircle(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
+                        if (gt.four_pixel[0] == cv::Point2f(0.0, 0.0))
+                            gt.four_pixel.erase(gt.four_pixel.begin());
                         //std::cout << "four_pixel size: " << gt.four_pixel.size() << std::endl;
                     }
                     for (int i = 0; i < 4; i++)
@@ -586,37 +586,34 @@ int main(int, char**)
                         ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
                         ImGui::Text("%d pixel selected, u:%d, v:%d", i, (int)gt.four_pixel[i].x, (int)gt.four_pixel[i].y);
                     }
-                    cv::Vec3d rvec, tvec;
-                    
-                    cv::undistortPoints ( gt.four_pixel, gt.undist, gt.K, gt.dist, cv::Mat(), gt.K ); 
-                    bool solve_ok = cv::solvePnP(gt.points, gt.undist, gt.K, cv::Mat(), rvec, tvec);
-                    if(!solve_ok)
+                    //sort(gt.four_pixel.begin(), gt.four_pixel.end(), cmp);
+                    gt.four_pixel.erase(unique(gt.four_pixel.begin(), gt.four_pixel.end()), gt.four_pixel.end());
+                    if (gt.four_pixel.size() == 4 && gt.four_pixel[0] != cv::Point2f(0.0, 0.0))
                     {
-                        return 0;
-                    }
-                    Eigen::Matrix3d R;
-                    cv::Mat cvR;
-                    cv::Rodrigues ( rvec, cvR );
-                    R <<  cvR.at<double> ( 0, 0 ), cvR.at<double> ( 0, 1 ), cvR.at<double> ( 0, 2 ),
-                        cvR.at<double> ( 1, 0 ), cvR.at<double> ( 1, 1 ), cvR.at<double> ( 1, 2 ),
-                        cvR.at<double> ( 2, 0 ), cvR.at<double> ( 2, 1 ), cvR.at<double> ( 2, 2 );
-                    Eigen::Vector3d t;
-                    t << tvec[0], tvec[1], tvec[2];
-                    Eigen::Vector3d r1 = R.block ( 0, 0, 3, 1 );
-                    Eigen::Vector3d r2 = R.block ( 0, 1, 3, 1 );
-                    Eigen::Vector3d tb;
-                    tb << 0.0, 0.0, target_offset;
-                    Eigen::Matrix3d RT;
-                    RT.block ( 0,0, 3, 1 ) = r1;
-                    RT.block ( 0,1, 3, 1 ) = r2;
-                    RT.block ( 0,2, 3, 1 ) = R * tb + t;
-                    Eigen::Matrix3d H = gt.eK * RT;
-                    std::cout << std::endl << H << std::endl << std::endl << std::endl;
-                    cv::FileStorage fs ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::WRITE );
-                    cv::Mat cvH = ( cv::Mat_<double> ( 3, 3 ) << H ( 0,0 ), H ( 0,1 ), H ( 0,2 ), H ( 1,0 ), H ( 1,1 ), H ( 1,2 ), H ( 2,0 ), H ( 2,1 ), H ( 2,2 ) );
-                    fs << "homograph_matrix" << cvH;
-                    fs.release();
+                        cv::FileStorage fread ( "/home/icey/workspace/Aruco/intrinsic_calibrationfile.yaml", cv::FileStorage::READ );
+                        float fx = fread["camera.fx"];
+                        float fy = fread["camera.fy"];
+                        float cx = fread["camera.cx"];
+                        float cy = fread["camera.cy"];
 
+                        float k1 = fread["camera.k1"];
+                        float k2 = fread["camera.k2"];
+                        float p1 = fread["camera.p1"];
+                        float p2 = fread["camera.p2"];
+                        float k3 = fread["camera.k3"];
+                        gt.K = ( cv::Mat_<float> ( 3, 3 ) << fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0);
+                        gt.dist = ( cv::Mat_<float> ( 1, 5 ) << k1, k2, p1, p2, k3 );
+                        cv::undistortPoints ( gt.four_pixel, gt.undist, gt.K, gt.dist, cv::noArray(), cv::noArray());
+                        std::vector<cv::Point2f> point{cv::Point2f(0.0, 0.0), cv::Point2f(0.0, 1.0), cv::Point2f(1.0, 0.0), cv::Point2f(1.0, 1.0)};
+                        cv::Mat H = findHomography(gt.four_pixel, point, RANSAC, 3);
+                        //std::cout << std::endl << H << std::endl << std::endl << std::endl;
+                        cv::FileStorage fs ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::WRITE );
+                        cv::Mat cvH = ( cv::Mat_<double> ( 3, 3 ) << H.at<double> ( 0,0 ), H.at<double> ( 0,1 ), H.at<double> ( 0,2 ), 
+                                        H.at<double> ( 1,0 ), H.at<double> ( 1,1 ), H.at<double> ( 1,2 ), H.at<double> ( 2,0 ), H.at<double> ( 2,1 ), H.at<double> ( 2,2 ) );
+                        fs << "homograph_matrix" << cvH;
+                        fs << "four_pixel" << gt.four_pixel;
+                        fs.release();
+                    }
                 }
                /*
                 std::cout << "3" << std::endl;
@@ -640,7 +637,6 @@ int main(int, char**)
             bool c = grab.marker;
             if (c)
             {
-                groundtruth gt;
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
                 cv::Point2f centerpoint;
                 cv::Mat image = markerdetect(grab.m_image, &centerpoint);
@@ -671,6 +667,43 @@ int main(int, char**)
                 ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
                 std::cout << "1" << std::endl;
                 ImGui::EndChild();
+            }
+            ImGui::SetCursorPos(ImVec2(1110.0f, 80.0f));
+            //ImGui::SameLine(1110.0f);
+            if(ImGui::Button("verify", ImVec2(90.0f, 40.0f)))
+            {
+                grab.verify = true;
+            }
+            bool d = grab.verify;
+            if (d)
+            {
+                std::unique_lock<std::mutex> lock(grab._pic_lock);
+                GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                cv::waitKey(50);
+                ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                ImVec2 pos = ImGui::GetCursorScreenPos();
+                cv::FileStorage fread ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::READ );
+                cv::Mat fourposition;
+                fread["four_pixel"] >> fourposition;
+                std::cout << "1" << std::endl;
+                std::cout << fourposition << std::endl;
+                std::vector<cv::Point2f> four_position;
+                std::cout << "1" << std::endl;
+                for (int i = 0; i < 8; i += 2)
+                {
+                    float a = fourposition.at<float>(0, i);
+                    std::cout << "a: " << a << std::endl;
+                    float b = fourposition.at<float>(0, i + 1);
+                    cv::Point2f point = cv::Point2f(a, b);
+                    std::cout << "2" << std::endl;
+                    four_position.push_back(point);
+                }
+                std::cout << "2" << std::endl;
+                ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[0].x + pos.x, four_position[0].y + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[1].x + pos.x, four_position[1].y + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[2].x + pos.x, four_position[2].y + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[3].x + pos.x, four_position[3].y + pos.y), 3.0f, ImColor(255,255,0,255));
             }
 
             /*
