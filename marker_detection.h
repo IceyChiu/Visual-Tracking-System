@@ -43,6 +43,7 @@ public:
 
         K = ( cv::Mat_<float> ( 3, 3 ) << fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0);
         dist = ( cv::Mat_<float> ( 1, 5 ) << k1, k2, p1, p2, k3 );
+	eK << fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0;
 
     }
 
@@ -113,6 +114,7 @@ public:
     
     cv::Mat K;
     cv::Mat dist;
+    Eigen::Matrix3d eK;
     cv::Mat point;
 
     Eigen::Matrix<float, 3, 3> H;
@@ -122,6 +124,10 @@ public:
     Eigen::Vector3f pt;
     //std::vector<Eigen::Vector3f> pt;
     std::vector<aruco::ARUCO_EXPORT Marker> markers;
+    //std::vector<cv::Point2f> four_pixel;
+    std::vector<cv::Point2f> four_pixel = std::vector<cv::Point2f>(4);
+    std::vector<cv::Point2f> undist = std::vector<cv::Point2f>(4);
+    std::vector<cv::Point3f> points = std::vector<cv::Point3f>(4);
 };  // class groundtruth
 
 extern groundtruth gt;

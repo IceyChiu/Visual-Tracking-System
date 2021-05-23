@@ -1,8 +1,9 @@
 #include "Grab_ImageCallback.h"
+#include "marker_detection.h"
 #include <chrono> 
 #include <mutex>
 Grabimage grab;
-
+groundtruth gt;
 // 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
 

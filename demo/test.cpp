@@ -24,7 +24,6 @@
 #include "../marker_detection.h"
 #include <string> 
 
-
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
 // Your own project should not be affected, as you are likely to link with a newer binary of GLFW that is adequate for your version of Visual Studio.
@@ -295,7 +294,7 @@ void excalibrate()
 
 cv::Mat markerdetect(cv::Mat image, cv::Point2f *centerpoint)
 {
-    groundtruth gt;
+    //groundtruth gt;
     const std::string h_matrix_dir = "/home/icey/workspace/Aruco/extrinsic_calibrationfile.yaml";
     std::string result_dir;
     const std::string setting_dir = "/home/icey/workspace/Aruco/intrinsic_calibrationfile.yaml";
@@ -493,7 +492,15 @@ int main(int, char**)
             //ImGui::Button("connect", ImVec2(90.0f, 40.0f));
             ImGui::SetCursorPos(ImVec2(1110.0f, 80.0f));
             //ImGui::SameLine(1110.0f);
-            ImGui::Button("verify", ImVec2(90.0f, 40.0f));
+            if(ImGui::Button("verify", ImVec2(90.0f, 40.0f)))
+            {
+                grab.verify = true;
+            }
+            bool d = grab.verify;
+            if (d)
+            {
+             
+            }
             ImGui::SetCursorPos(ImVec2(1000.0f, 140.0f));
             if(ImGui::Button("calibration", ImVec2(90.0f, 40.0f)))
             {
@@ -504,7 +511,7 @@ int main(int, char**)
             bool b = grab.calibrate;
             if(b)
             {
-                std::unique_lock<std::mutex> lock(grab._pic_lock);
+                //std::unique_lock<std::mutex> lock(grab._pic_lock);
                 //cv::Mat img = cv::imread("./excalib.png");
                 cv::Mat img = cv::imread("/home/icey/share/extrinsic/build/data2.bmp", 0);
                 cv::Mat image = cv::imread("/home/icey/图片/Screenshot from 2021-02-05 11-04-16.png", cv::IMREAD_UNCHANGED);
@@ -513,9 +520,8 @@ int main(int, char**)
                 //cv::cvtColor(img, img, COLOR_GRAY2RGB);
                 cv::Mat img3 = convertTo3Channels(img);
                 cv::Mat img4 = convertto4(img3);
-                std::cout << "channel: " << img4.channels() << "; type: " << img4.type() << std::endl;
                 const unsigned char* const imgbyte = img.data;
-                std::cout << "2" << std::endl;
+                //std::cout << "2" << std::endl;
                 GLuint my_image_texture = matToTexture(img, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
                 
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
@@ -527,29 +533,92 @@ int main(int, char**)
                 ImVec4 border_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); // 50% opaque white
                 
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
-                
+                ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
+                //ImVec2 pos = ImGui::GetCursorScreenPos();
+                //groundtruth gt;
+                //std::vector<cv::Point2f> four_pixel(4);
                 if (ImGui::IsItemHovered())
                 {
                     ImGui::BeginTooltip();
-                    float region_sz = 9.0f;
+                    float region_sz = 32.0f;
                     float region_x = io.MousePos.x - pos.x - region_sz * 0.5f;
                     float region_y = io.MousePos.y - pos.y - region_sz * 0.5f;
-                    float zoom = 20.0f;
-                    if (region_x < 0.0f) { region_x = 0.0f; }
-                    else if (region_x > my_image_width - region_sz) { region_x = my_image_width - region_sz; }
-                    if (region_y < 0.0f) { region_y = 0.0f; }
-                    else if (region_y > my_image_height - region_sz) { region_y = my_image_height - region_sz; }
+                    float zoom = 4.0f;
+                    if (region_x < 0.0) { region_x = 0.0; }
+                    else if (region_x > (my_image_width - region_sz)) { region_x = my_image_width - region_sz; }
+                    if (region_y < 0.0) { region_y = 0.0; }
+                    else if (region_y > (my_image_height - region_sz)) { region_y = my_image_height - region_sz; }
                     //ImGui::Text("Min: (%.2f, %.2f)", region_x, region_y);
                     ImGui::Text("coord: (%.2f, %.2f)", region_x + 0.5 * region_sz, region_y + 0.5 * region_sz);
-                    ImVec2 uv0 = ImVec2((region_x) / my_image_width, (region_y) / my_image_height);
-                    ImVec2 uv1 = ImVec2((region_x + region_sz) / my_image_width, (region_y + region_sz) / my_image_height);
+                    ImVec2 uv0 = ImVec2((region_x - zoom) / my_image_width, (region_y - zoom) / my_image_height); 
+                    ImVec2 uv1 = ImVec2((region_x + region_sz - zoom) / my_image_width, (region_y + region_sz - zoom) / my_image_height);
                     ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(region_sz * zoom, region_sz * zoom), uv0, uv1, tint_col, border_col);
-                    const ImVec2 pos = ImVec2( region_x + (region_sz - 1.0) / 2 * zoom , region_y + (region_sz - 1.0) / 2 * zoom );
-                    ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                    draw_list->AddRect(pos, ImVec2(pos.x + zoom, pos.y + zoom), 0xFF0000FF, 0.f, 15, 2.f);
+                    //const ImVec2 pos = ImVec2( region_x + (region_sz - 1.0) / 2.0 * zoom , region_y + (region_sz - 1.0) / 2.0 * zoom );
+                    //ImDrawList* draw_list = ImGui::GetWindowDrawList();
+                    //draw_list->AddCircle(ImVec2((region_x + region_sz * 0.5 - zoom), (region_y + region_sz * 0.5 - zoom)), 2.0f, 0xFF0000FF);
+                    ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
+                    /*
+                    if (io.MouseDown[0]){
+                        ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
+                        cv::Point2f four(region_x + 0.5f * region_sz, region_y + 0.5f * region_sz);
+                        std::cout << "four: " << four << std::endl;
+                        gt.four_pixel.push_back(four);
+                        //ImGui::GetForegroundDrawList()->AddCircle(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
+                        std::cout << "four_pixel: " << gt.four_pixel[3] << std::endl;
+                    }
+                    */
                     ImGui::EndTooltip();
+                    if (io.MouseDown[1] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f){
+                        ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 5.0f, ImColor(255,255,0,255));
+                        cv::Point2f four(region_x + 0.5f * region_sz, region_y + 0.5f * region_sz);
+                        std::cout << "four: " << four << std::endl;
+                        gt.four_pixel.erase(gt.four_pixel.begin());
+                        gt.four_pixel.push_back(four);
+                        std::cout << "four_pixel: " << gt.four_pixel << std::endl;
+                        //gt.four_pixel.erase(gt.four_pixel.begin());
+                        //ImGui::GetForegroundDrawList()->AddCircle(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
+                        //std::cout << "four_pixel size: " << gt.four_pixel.size() << std::endl;
+                    }
+                    for (int i = 0; i < 4; i++)
+                    {
+                        //std::cout << "four_pixel: " << four_pixel[i] << std::endl;
+                        ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(gt.four_pixel[i].x + pos.x, gt.four_pixel[i].y + pos.y), 3.0f, ImColor(255,255,0,255));
+                        ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+                        ImGui::Text("%d pixel selected, u:%d, v:%d", i, (int)gt.four_pixel[i].x, (int)gt.four_pixel[i].y);
+                    }
+                    cv::Vec3d rvec, tvec;
+                    
+                    cv::undistortPoints ( gt.four_pixel, gt.undist, gt.K, gt.dist, cv::Mat(), gt.K ); 
+                    bool solve_ok = cv::solvePnP(gt.points, gt.undist, gt.K, cv::Mat(), rvec, tvec);
+                    if(!solve_ok)
+                    {
+                        return 0;
+                    }
+                    Eigen::Matrix3d R;
+                    cv::Mat cvR;
+                    cv::Rodrigues ( rvec, cvR );
+                    R <<  cvR.at<double> ( 0, 0 ), cvR.at<double> ( 0, 1 ), cvR.at<double> ( 0, 2 ),
+                        cvR.at<double> ( 1, 0 ), cvR.at<double> ( 1, 1 ), cvR.at<double> ( 1, 2 ),
+                        cvR.at<double> ( 2, 0 ), cvR.at<double> ( 2, 1 ), cvR.at<double> ( 2, 2 );
+                    Eigen::Vector3d t;
+                    t << tvec[0], tvec[1], tvec[2];
+                    Eigen::Vector3d r1 = R.block ( 0, 0, 3, 1 );
+                    Eigen::Vector3d r2 = R.block ( 0, 1, 3, 1 );
+                    Eigen::Vector3d tb;
+                    tb << 0.0, 0.0, target_offset;
+                    Eigen::Matrix3d RT;
+                    RT.block ( 0,0, 3, 1 ) = r1;
+                    RT.block ( 0,1, 3, 1 ) = r2;
+                    RT.block ( 0,2, 3, 1 ) = R * tb + t;
+                    Eigen::Matrix3d H = gt.eK * RT;
+                    std::cout << std::endl << H << std::endl << std::endl << std::endl;
+                    cv::FileStorage fs ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::WRITE );
+                    cv::Mat cvH = ( cv::Mat_<double> ( 3, 3 ) << H ( 0,0 ), H ( 0,1 ), H ( 0,2 ), H ( 1,0 ), H ( 1,1 ), H ( 1,2 ), H ( 2,0 ), H ( 2,1 ), H ( 2,2 ) );
+                    fs << "homograph_matrix" << cvH;
+                    fs.release();
+
                 }
-                /*
+               /*
                 std::cout << "3" << std::endl;
                 ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
                 ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
@@ -563,8 +632,7 @@ int main(int, char**)
                     ImageInspect::inspect(width, height, imgbyte, mouseUVCoord, ImVec2(9, 9));
                 }*/
             }
-            //ImGui::SetCursorPos(ImVec2(1000.0f, 540.0f));
-            ImGui::SameLine(1110.0f);
+            ImGui::SetCursorPos(ImVec2(1110.0f, 140.0f));
             if (ImGui::Button("track", ImVec2(90.0f, 40.0f)))
             {
                 grab.marker = true;
