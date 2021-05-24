@@ -487,7 +487,9 @@ int main(int, char**)
                 GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
                 cv::waitKey(50);
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                //ImGui::BeginChild("connect");
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                //ImGui::EndChild();
             }
 
             //float x = 0.5;
@@ -510,9 +512,9 @@ int main(int, char**)
             if(b)
             {
                 //std::unique_lock<std::mutex> lock(grab._pic_lock);
-                //cv::Mat img = cv::imread("./excalib.png");
-                cv::Mat img = cv::imread("/home/icey/share/extrinsic/build/data2.bmp", 0);
-                cv::Mat image = cv::imread("/home/icey/图片/Screenshot from 2021-02-05 11-04-16.png", cv::IMREAD_UNCHANGED);
+                cv::Mat img = cv::imread("./excalib.png");
+                //cv::Mat img = cv::imread("/home/icey/share/extrinsic/build/data2.bmp", 0);
+                //cv::Mat image = cv::imread("/home/icey/图片/Screenshot from 2021-02-05 11-04-16.png", cv::IMREAD_UNCHANGED);
                 //std::cout << "channel: " << img.channels() << "; type: " << img.type() << std::endl;
                 //std::cout << "1" << std::endl;
                 //cv::cvtColor(img, img, COLOR_GRAY2RGB);
@@ -529,8 +531,9 @@ int main(int, char**)
                 ImVec2 uv_max = ImVec2(1.0f, 1.0f);                 // Lower-right
                 ImVec4 tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);   // No tint
                 ImVec4 border_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); // 50% opaque white
-                
+                //ImGui::BeginChild("calibration");
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                //ImGui::EndChild();
                 ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
                 //ImVec2 pos = ImGui::GetCursorScreenPos();
                 //groundtruth gt;
@@ -547,7 +550,7 @@ int main(int, char**)
                     if (region_y < 0.0) { region_y = 0.0; }
                     else if (region_y > (my_image_height - region_sz)) { region_y = my_image_height - region_sz; }
                     //ImGui::Text("Min: (%.2f, %.2f)", region_x, region_y);
-                    ImGui::Text("coord: (%.2f, %.2f)", region_x + 0.5 * region_sz, region_y + 0.5 * region_sz);
+                    ImGui::Text("coord: (%.2f, %.2f)", (region_x + 0.5 * region_sz) * 2, (region_y + 0.5 * region_sz) * 2);
                     ImVec2 uv0 = ImVec2((region_x - zoom) / my_image_width, (region_y - zoom) / my_image_height); 
                     ImVec2 uv1 = ImVec2((region_x + region_sz - zoom) / my_image_width, (region_y + region_sz - zoom) / my_image_height);
                     ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(region_sz * zoom, region_sz * zoom), uv0, uv1, tint_col, border_col);
@@ -568,7 +571,7 @@ int main(int, char**)
                     ImGui::EndTooltip();
                     if (io.MouseDown[1] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f){
                         //ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 5.0f, ImColor(255,255,0,255));
-                        cv::Point2f four(region_x + 0.5f * region_sz, region_y + 0.5f * region_sz);
+                        cv::Point2f four((region_x + 0.5f * region_sz) * 2, (region_y + 0.5f * region_sz) * 2);
                         std::cout << "four: " << four << std::endl;
                         //gt.four_pixel.erase(gt.four_pixel.begin());
                         gt.four_pixel.push_back(four);
@@ -582,9 +585,12 @@ int main(int, char**)
                     for (int i = 0; i < 4; i++)
                     {
                         //std::cout << "four_pixel: " << four_pixel[i] << std::endl;
-                        ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(gt.four_pixel[i].x + pos.x, gt.four_pixel[i].y + pos.y), 3.0f, ImColor(255,255,0,255));
+                        ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(gt.four_pixel[i].x / 2.0 + pos.x, gt.four_pixel[i].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
                         ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
-                        ImGui::Text("%d pixel selected, u:%d, v:%d", i, (int)gt.four_pixel[i].x, (int)gt.four_pixel[i].y);
+                        
+                        ImGui::BeginChild("Scrolling");
+                        ImGui::Text("%d pixel selected, u:%d, v:%d", i + 1, (int)gt.four_pixel[i].x, (int)gt.four_pixel[i].y);
+                        ImGui::EndChild();
                     }
                     //sort(gt.four_pixel.begin(), gt.four_pixel.end(), cmp);
                     gt.four_pixel.erase(unique(gt.four_pixel.begin(), gt.four_pixel.end()), gt.four_pixel.end());
@@ -623,6 +629,11 @@ int main(int, char**)
                         fs << "homograph_matrix" << cvH;
                         fs << "four_pixel" << pix;
                         fs.release();
+                        std::cout << "calibration done!" << std::endl;
+                        ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+                        ImGui::BeginChild("Scrolling");
+                        ImGui::Text("calibration done!");
+                        ImGui::EndChild();
                     }
                 }
                /*
@@ -661,14 +672,16 @@ int main(int, char**)
                 GLuint my_image_texture = matToTexture(image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
                 cv::waitKey(50);
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                //ImGui::BeginChild("track");
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                //ImGui::EndChild();
                 //float x = 1.0f;
                 //int y = 2;
                 //string x(std::to_string(gt.pt[0]));
                 //string y(std::to_string(gt.pt[1]));
                 //static float y = gt.pt[1];
                 ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
-                ImGui::BeginChild("Scrolling");
+                ImGui::BeginChild("Scrolling1");
                 std::cout << "1" << std::endl;
                 //float x = gt.point.at<float> (0, 0);
                 //float y = gt.point.at<float> (0, 1);
@@ -709,11 +722,13 @@ int main(int, char**)
                     four_position.push_back(point);
                 }
                 std::cout << "2" << std::endl;
+                //ImGui::BeginChild("verify");
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
-                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[0].x + pos.x, four_position[0].y + pos.y), 3.0f, ImColor(255,255,0,255));
-                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[1].x + pos.x, four_position[1].y + pos.y), 3.0f, ImColor(255,255,0,255));
-                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[2].x + pos.x, four_position[2].y + pos.y), 3.0f, ImColor(255,255,0,255));
-                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[3].x + pos.x, four_position[3].y + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[0].x / 2.0 + pos.x, four_position[0].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[1].x / 2.0 + pos.x, four_position[1].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[2].x / 2.0 + pos.x, four_position[2].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[3].x / 2.0 + pos.x, four_position[3].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                //ImGui::EndChild();
             }
 
             /*
