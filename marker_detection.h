@@ -1,3 +1,4 @@
+#pragma once
 #include "/home/icey/software/aruco-3.1.12/src/aruco.h"
 #include <iostream>
 #include <fstream>
