@@ -6,6 +6,8 @@
 Grabimage grab;
 groundtruth gt;
 demo test;
+pthread_t nThreadID;
+
 // 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
 
@@ -96,12 +98,14 @@ static void* WorkThread(void* pUser)
         if (nRet == MV_OK)
         {
             
-            std::unique_lock<std::mutex> lock(grab._pic_lock);
+            //std::unique_lock<std::mutex> lock(grab._pic_lock);
             //cv::waitKey(50);
+            //pthread_mutex_lock(&grab.lock_grab);
             std::cout << "===========================> running" << std::endl;
             grab.m_image = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
             std::cout << "===========================> end" << std::endl;
-            
+            //pthread_mutex_unlock(&grab.lock_grab);
+            //lock.unlock();         
                 //imshow("image", grab.m_image);
             
             //int64_t timestamp = GetTime();
@@ -122,6 +126,9 @@ static void* WorkThread(void* pUser)
 int StartGrab()
 {
     //using namespace std::chrono_literals;
+    
+    //std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+    
     int nRet = MV_OK;
 
     void* handle = NULL;
@@ -224,7 +231,9 @@ int StartGrab()
             break;
         }
 
-        pthread_t nThreadID;
+        //pthread_t nThreadID;
+        //pthread_mutex_t lock;
+        pthread_mutex_init(&grab.lock_grab, NULL);
         nRet = pthread_create(&nThreadID, NULL ,WorkThread , handle);
         if (nRet != 0)
         {
@@ -232,6 +241,7 @@ int StartGrab()
             break;
         }
         pthread_join(nThreadID, NULL);
+        pthread_mutex_destroy(&grab.lock_grab);
         PressEnterToExit();
 
         // 停止取流
@@ -271,7 +281,7 @@ int StartGrab()
         }
     }
     
-    std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+    //std::unique_lock<std::mutex> lock1(grab._mutex_locker);
     
     //while(1){
         //

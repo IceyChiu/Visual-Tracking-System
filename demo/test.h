@@ -14,7 +14,7 @@
 #include <GLFW/glfw3.h>
 //#include <opencv2/opencv.hpp>
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+//#include "stb_image.h"
 #include "../Grab_ImageCallback.h"
 //#include <boost/lexical_cast.hpp>
 #include "../marker_detection.h"
@@ -28,6 +28,7 @@ public:
     pthread_t thread_calibrate;
     pthread_t thread_track;
     pthread_t thread_verify;
+
 };
 
 extern demo test;

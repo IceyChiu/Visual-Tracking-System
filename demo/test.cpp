@@ -322,19 +322,34 @@ static bool cmp(const cv::Point2f &A, const cv::Point2f &B){
         return false;
 }
 
-void connect(int a, int b)
+struct img_size{
+    int my_image_width = 960;
+    int my_image_height = 600;
+};
+
+
+void *connect(void *arguments)
 {
-    std::unique_lock<std::mutex> lock(grab._pic_lock);
+    //std::unique_lock<std::mutex> lock(grab._pic_lock);
+    //pthread_mutex_lock(&grab.lock_grab);
+    struct img_size *size = (struct img_size *)arguments;
+    std::cout << "11111111" << std::endl;
     GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+    std::cout << "22222222" << std::endl;
     //cv::waitKey(50);
     ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
     //ImGui::BeginChild("connect");
+    int a = size->my_image_width;
+    int b = size->my_image_height;
     ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(a, b));
+    //pthread_mutex_unlock(&grab.lock_grab);
+    //lock.unlock();
 }
 
-void calibrate(int a, int b)
+void *calibrate(void *arguments)
 {
     //std::unique_lock<std::mutex> lock(grab._pic_lock);
+    struct img_size *size = (struct img_size *)arguments;
     cv::Mat img = cv::imread("./excalib.png");
     //cv::Mat img = cv::imread("/home/icey/share/extrinsic/build/data2.bmp", 0);
     //cv::Mat image = cv::imread("/home/icey/图片/Screenshot from 2021-02-05 11-04-16.png", cv::IMREAD_UNCHANGED);
@@ -355,7 +370,7 @@ void calibrate(int a, int b)
     ImVec4 tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);   // No tint
     ImVec4 border_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); // 50% opaque white
     //ImGui::BeginChild("calibration");
-    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(a, b));
+    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(size->my_image_width, size->my_image_height));
     //cv::waitKey(50);
     //ImGui::EndChild();
     ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
@@ -371,13 +386,13 @@ void calibrate(int a, int b)
         float region_y = io.MousePos.y - pos.y - region_sz * 0.5f;
         float zoom = 4.0f;
         if (region_x < 0.0) { region_x = 0.0; }
-        else if (region_x > (a - region_sz)) { region_x = a - region_sz; }
+        else if (region_x > (size->my_image_width - region_sz)) { region_x = size->my_image_width - region_sz; }
         if (region_y < 0.0) { region_y = 0.0; }
-        else if (region_y > (b - region_sz)) { region_y = b - region_sz; }
+        else if (region_y > (size->my_image_height - region_sz)) { region_y = size->my_image_height - region_sz; }
         //ImGui::Text("Min: (%.2f, %.2f)", region_x, region_y);
         ImGui::Text("coord: (%.2f, %.2f)", (region_x + 0.5 * region_sz) * 2, (region_y + 0.5 * region_sz) * 2);
-        ImVec2 uv0 = ImVec2((region_x - zoom) / a, (region_y - zoom) / b); 
-        ImVec2 uv1 = ImVec2((region_x + region_sz - zoom) / a, (region_y + region_sz - zoom) / b);
+        ImVec2 uv0 = ImVec2((region_x - zoom) / size->my_image_width, (region_y - zoom) / size->my_image_height); 
+        ImVec2 uv1 = ImVec2((region_x + region_sz - zoom) / size->my_image_width, (region_y + region_sz - zoom) / size->my_image_height);
         ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(region_sz * zoom, region_sz * zoom), uv0, uv1, tint_col, border_col);
         //const ImVec2 pos = ImVec2( region_x + (region_sz - 1.0) / 2.0 * zoom , region_y + (region_sz - 1.0) / 2.0 * zoom );
         //ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -463,9 +478,10 @@ void calibrate(int a, int b)
     }
 }
 
-void track(int a, int b)
+void *track(void *arguments)
 {
     std::unique_lock<std::mutex> lock(grab._pic_lock);
+    struct img_size *size = (struct img_size *)arguments;
     cv::Point2f centerpoint;
     cv::Mat image = markerdetect(grab.m_image, &centerpoint);
     std::cout << "center.size()" << centerpoint << std::endl;
@@ -480,7 +496,7 @@ void track(int a, int b)
     //cv::waitKey(50);
     ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
     //ImGui::BeginChild("track");
-    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(a, b));
+    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(size->my_image_width, size->my_image_height));
     //ImGui::EndChild();
     //float x = 1.0f;
     //int y = 2;
@@ -497,11 +513,13 @@ void track(int a, int b)
     ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
     std::cout << "1" << std::endl;
     ImGui::EndChild();
+    lock.unlock();
 }
 
-void verify(int a, int b)
+void *verify(void *arguments)
 {
     std::unique_lock<std::mutex> lock(grab._pic_lock);
+    struct img_size *size = (struct img_size *)arguments;
     GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
     //cv::waitKey(50);
     ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
@@ -524,13 +542,243 @@ void verify(int a, int b)
     }
     std::cout << "2" << std::endl;
     //ImGui::BeginChild("verify");
-    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(a, b));
+    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(size->my_image_width, size->my_image_height));
     ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[0].x / 2.0 + pos.x, four_position[0].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
     ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[1].x / 2.0 + pos.x, four_position[1].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
     ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[2].x / 2.0 + pos.x, four_position[2].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
     ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[3].x / 2.0 + pos.x, four_position[3].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
     //ImGui::EndChild();
+    lock.unlock();
 }
+/*
+struct img_size{
+    int my_image_width = 960;
+    int my_image_height = 600;
+};
+*/
+static void* WorkThread(void* pUser)
+{
+    int nRet = MV_OK;
+    // ch:获取数据包大小 | en:Get payload size
+    MVCC_INTVALUE stParam;
+    memset(&stParam, 0, sizeof(MVCC_INTVALUE));
+    nRet = MV_CC_GetIntValue(pUser, "PayloadSize", &stParam);
+    if (MV_OK != nRet)
+    {
+        printf("Get PayloadSize fail! nRet [0x%x]\n", nRet);
+        return NULL;
+    }
+
+    MV_FRAME_OUT_INFO_EX stImageInfo = {0};
+    memset(&stImageInfo, 0, sizeof(MV_FRAME_OUT_INFO_EX));
+    unsigned char * pData = (unsigned char *)malloc(sizeof(unsigned char) * stParam.nCurValue);
+    if (NULL == pData)
+    {
+        return NULL;
+    }
+    unsigned int nDataSize = stParam.nCurValue;
+    while(1)
+    {
+        if(grab.g_bExit)
+        {
+            break;
+        }
+        std::cout << "===========================> begin" << std::endl;
+        nRet = MV_CC_GetOneFrameTimeout(pUser, pData, nDataSize, &stImageInfo, 1000);
+        if (nRet == MV_OK)
+        {
+
+            //std::unique_lock<std::mutex> lock(grab._pic_lock);
+            //cv::waitKey(50);
+            //pthread_mutex_lock(&grab.lock_grab);
+            std::cout << "===========================> running" << std::endl;
+            grab.m_image = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
+        std::cout << "===========================> end" << std::endl;
+            //pthread_mutex_unlock(&grab.lock_grab);
+        }
+        else{
+            printf("No data[%x]\n", nRet);
+        }
+    }
+    free(pData);
+    return 0;
+
+}
+
+int StartGrab(void* handle)
+{
+    //using namespace std::chrono_literals;
+    
+    //std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+    
+    int nRet = MV_OK;
+
+    handle = NULL;
+    int i = 0;
+
+    do 
+    {
+        MV_CC_DEVICE_INFO_LIST stDeviceList;
+        memset(&stDeviceList, 0, sizeof(MV_CC_DEVICE_INFO_LIST));
+
+        // 枚举设备
+        // enum device
+        nRet = MV_CC_EnumDevices(MV_GIGE_DEVICE | MV_USB_DEVICE, &stDeviceList);
+        if (MV_OK != nRet)
+        {
+            printf("MV_CC_EnumDevices fail! nRet [%x]\n", nRet);                                                                                                                                      
+            break;
+        }
+
+        if (stDeviceList.nDeviceNum > 0)
+        {
+            for (int i = 0; i < stDeviceList.nDeviceNum; i++)
+            {
+                printf("[device %d]:\n", i);
+                MV_CC_DEVICE_INFO* pDeviceInfo = stDeviceList.pDeviceInfo[i];
+                if (NULL == pDeviceInfo)
+                {
+                    break;
+                }
+                PrintDeviceInfo(pDeviceInfo);            
+            }  
+        } 
+        else
+        {
+            printf("Find No Devices!\n");
+            break;
+        }
+
+        //printf("Please Intput camera index: ");
+        unsigned int nIndex = 0;
+        //scanf("%d", &nIndex);
+
+        if (nIndex >= stDeviceList.nDeviceNum)
+        {
+            printf("Intput error!\n");
+            break;
+        }
+
+        // 选择设备并创建句柄std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+
+        // select device and create handle
+        nRet = MV_CC_CreateHandle(&handle, stDeviceList.pDeviceInfo[nIndex]);
+        if (MV_OK != nRet)
+        {
+            printf("MV_CC_CreateHandle fail! nRet [%x]\n", nRet);
+            break;
+        }
+
+        // 打开设备
+        // open deviceStartGrab
+        nRet = MV_CC_OpenDevice(handle);
+        if (MV_OK != nRet)
+        {
+            printf("MV_CC_OpenDevice fail! nRet [%x]\n", nRet);
+            break;
+        }
+        
+        // ch:探测网络最佳包大小(只对GigE相机有效) | en:Detection network optimal package size(It only works for the GigE camera)
+        if (stDeviceList.pDeviceInfo[nIndex]->nTLayerType == MV_GIGE_DEVICE)
+        {
+            int nPacketSize = MV_CC_GetOptimalPacketSize(handle);
+            if (nPacketSize > 0)
+            {
+                nRet = MV_CC_SetIntValue(handle,"GevSCPSPacketSize",nPacketSize);
+                if(nRet != MV_OK)
+                {
+                    printf("Warning: Set Packet Size fail nRet [0x%x]!\n", nRet);
+                }
+            }
+            else
+            {
+                printf("Warning: Get Packet Size fail nRet [0x%x]!\n", nPacketSize);
+            }
+        }
+        
+        // 设置触发模式为off
+        // set trigger mode as off
+        nRet = MV_CC_SetEnumValue(handle, "TriggerMode", 0);
+        if (MV_OK != nRet)
+        {
+            printf("MV_CC_SetTriggerMode fail! nRet [%x]\n", nRet);
+            break;
+        }
+
+        // 开始取流
+        // start grab image
+        nRet = MV_CC_StartGrabbing(handle);
+        if (MV_OK != nRet)
+        {
+            printf("MV_CC_StartGrabbing fail! nRet [%x]\n", nRet);
+            break;
+        }
+
+        pthread_t nThreadID;
+        //pthread_mutex_t lock;
+        //pthread_mutex_init(&grab.lock_grab, NULL);
+        nRet = pthread_create(&nThreadID, NULL, WorkThread, handle);
+        //WorkThread(handle); 
+        //i += 1;
+        if (nRet != 0)
+        {
+            printf("thread create failed.ret = %d\n",nRet);
+            break;
+        }
+        //pthread_detach(nThreadID);
+        //pthread_mutex_destroy(&grab.lock_grab);
+        //PressEnterToExit();
+
+        // 停止取流
+        // end grab image
+#if 0
+{
+        nRet = MV_CC_StopGrabbing(handle);
+        if (MV_OK != nRet)
+        {
+            printf("MV_CC_StopGrabbing fail! nRet [%x]\n", nRet);
+            break;
+        }
+
+        // 关闭设备
+        // close device
+        nRet = MV_CC_CloseDevice(handle);
+        if (MV_OK != nRet)
+        {
+            printf("MV_CC_CloseDevice fail! nRet [%x]\n", nRet);
+            break;
+        }
+
+        // 销毁句柄
+        // destroy handle
+        nRet = MV_CC_DestroyHandle(handle);
+        if (MV_OK != nRet)
+        {
+            printf("MV_CC_DestroyHandle fail! nRet [%x]\n", nRet);
+            break;
+        }
+    } while (i == 0);
+
+    if (nRet != MV_OK)
+    {
+        if (handle != NULL)
+        {
+            MV_CC_DestroyHandle(handle);
+            handle = NULL;
+        }
+    }
+}    
+#endif
+    } while(0);
+    //std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+    
+    //while(1){
+        //
+        //std::this_thread::sleep_for(1000ms);
+    //}
+    printf("exit\n");
+    return 0;
+}                                 
 
 int main(int, char**)
 {
@@ -597,8 +845,13 @@ int main(int, char**)
     //bool show_demo_window = true;
     //bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-    std::unique_lock<std::mutex> lock1(grab._mutex_locker);
-    thread mythread(StartGrab);
+    //std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+    //thread mythread(StartGrab);
+    struct img_size size;
+    void* handle = NULL;
+    StartGrab(handle);
+
+    //struct img_size *size = malloc(sizeof(struct img_size));
     //mythread.join();
     //Grab_image();
     // Main loop
@@ -609,6 +862,9 @@ int main(int, char**)
         // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application.
         // - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application.
         // Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
+        //std::unique_lock<std::mutex> lock1(grab._mutex_locker);
+        //thread mythread(StartGrab);
+
         glfwPollEvents();
 
         // Start the Dear ImGui frame
@@ -629,20 +885,31 @@ int main(int, char**)
             //static int counter = 0;
 
             ImGui::Begin("Real-time visual tracking system");                          // Create a window called "Hello, world!" and append into it.
-            int my_image_width = 960;
-            int my_image_height = 600;
+            //int my_image_width = 960;
+            //int my_image_height = 600;
             //GLuint my_image_texture = 0;
             //bool ret = LoadTextureFromFile(grab.m_image, &my_image_texture, &my_image_width, &my_image_height);
             //ImGui::Button("connect");
             //IM_ASSERT(ret);
-            std::cout << "--------------------------------gui running" << std::endl;
+         //   std::cout << "--------------------------------gui running" << std::endl;
             ImGui::SetCursorPos(ImVec2(1000.0f, 80.0f));
+            
+            pthread_t nThreadID;
             if (ImGui::Button("connect", ImVec2(90.0f, 40.0f))) {
                 grab.repeat = true;
                 grab.marker = false;
                 grab.calibrate = false;
                 grab.verify = false;
-                pthread_create(&test.thread_connect, NULL, connect, my_image_width, my_image_height);
+                //void* handle = NULL;
+                //std::cout << "1111111111111111111" << std::endl;
+                //StartGrab(handle);
+                //pthread_mutex_init(&grab.lock_grab, NULL);
+                //std::cout << "2222222222222222222" << std::endl;
+                //pthread_create(&nThreadID, NULL ,WorkThread , handle);
+                               //pthread_mutex_init(&grab.lock_grab, NULL);
+                //std::cout << "1111111111111111111" << std::endl;
+                pthread_create(&test.thread_connect, NULL, connect, (void *)&size);
+                std::cout << "thread_connect create!" << std::endl;
                 /*
                 if (!capture.read(grab.m_image)) {
                     ImGui::Text("Cannot grab a frame!");
@@ -677,7 +944,12 @@ int main(int, char**)
             bool a = grab.repeat;
             if (a)
             {
+                
+                //pthread_detach(nThreadID);
+                //pthread_mutex_destroy(&grab.lock_grab);
                 pthread_join(test.thread_connect, NULL);
+                //pthread_mutex_destroy(&grab.lock_grab);
+                std::cout << "thread_connect end!" << std::endl;
             }
 
             //float x = 0.5;
@@ -698,7 +970,7 @@ int main(int, char**)
                 grab.verify = false;
                 grab.calibrate_img = grab.m_image;
                 cv::imwrite("./excalib.png", grab.calibrate_img);
-                pthread_create(&test.thread_calibrate, NULL, calibrate, &my_image_width, &my_image_height);
+                pthread_create(&test.thread_calibrate, NULL, calibrate, (void *)&size);
 
             }
             bool b = grab.calibrate;
@@ -714,7 +986,7 @@ int main(int, char**)
                 grab.repeat = false;
                 grab.calibrate = false;
                 grab.verify = false;
-                pthread_create(&test.thread_track, NULL, track, &my_image_width, &my_image_height);
+                pthread_create(&test.thread_track, NULL, track, (void *)&size);
            }
             bool c = grab.marker;
             if (c)
@@ -729,7 +1001,7 @@ int main(int, char**)
                 grab.repeat = false;
                 grab.marker = false;
                 grab.calibrate = false;
-                pthread_create(&test.thread_verify, NULL, verify, &my_image_width, &my_image_height);
+                pthread_create(&test.thread_verify, NULL, verify, (void *)&size);
             }
             bool d = grab.verify;
             if (d)
@@ -791,6 +1063,5 @@ int main(int, char**)
 
     glfwDestroyWindow(window);
     glfwTerminate();
-
     return 0;
 }
