@@ -4,19 +4,9 @@
 #include <mutex>
 Grabimage grab;
 groundtruth gt;
+image_ts time_img;
 // 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
-
-int64_t GetTime(void)
-{
-    struct timespec rt;
-    clock_gettime(CLOCK_MONOTONIC, &rt);
-    int64_t t;                                                            
-    t = (int64_t)(rt.tv_sec) * 1000000 + rt.tv_nsec / 1000;
-
-    return t;
-}
-
 
 void PressEnterToExit(void)
 {
@@ -88,16 +78,18 @@ static void* WorkThread(void* pUser)
 		{
 			break;
 		}
-
+        int64_t systime = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count(); 
         nRet = MV_CC_GetOneFrameTimeout(pUser, pData, nDataSize, &stImageInfo, 1000);
         if (nRet == MV_OK)
         {
             
             std::unique_lock<std::mutex> lock(grab._pic_lock);
-            cv::waitKey(50);
-            grab.m_image = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
-            
-                //imshow("image", grab.m_image);
+            //cv::waitKey(50);
+            time_img.m_image = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
+            unsigned int timestampHigh = stImageInfo.nDevTimeStampHigh;
+            unsigned int timestampLow = stImageInfo.nDevTimeStampLow; 
+            int64_t timestamp = timestampHigh * pow(2, 32) + timestampLow; 
+            time_img.systime = timestamp * 10 + systime;
             
             //int64_t timestamp = GetTime();
             //imwrite("./demo/image/" + std::to_string(timestamp) + ".png", grab.m_image);
@@ -227,6 +219,7 @@ int StartGrab()
             break;
         }
 
+        pthread_join(nThreadID, NULL);
         PressEnterToExit();
 
         // 停止取流

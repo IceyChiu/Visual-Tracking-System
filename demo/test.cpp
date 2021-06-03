@@ -218,8 +218,8 @@ byte matToBytes(cv::Mat image)
 
 static GLuint matToTexture(const cv::Mat &mat, GLenum minFilter, GLenum magFilter, GLenum wrapFilter) {
     // Generate a number for our textureID's unique handle
-    GLuint textureID;
-    glGenTextures(1, &textureID);
+    GLuint textureID = 0;
+    //glGenTextures(1, &textureID);
 
     // Bind to our texture handle
     glBindTexture(GL_TEXTURE_2D, textureID);
@@ -302,7 +302,7 @@ cv::Mat markerdetect(cv::Mat image, cv::Point2f *centerpoint)
     aruco::MarkerDetector MDetector;
     MDetector.setDictionary("ARUCO");
 
-    gt.undistort(grab.m_image);
+    gt.undistort(time_img.m_image);
     gt.pnp(h_matrix_dir);
     centerpoint->x = gt.point.at<float> (0, 0);
     centerpoint->y = gt.point.at<float> (0, 1);
@@ -410,6 +410,9 @@ int main(int, char**)
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
     std::unique_lock<std::mutex> lock1(grab._mutex_locker);
     thread mythread(StartGrab);
+
+    std::string result_dir = "./result.txt";
+    std::ofstream  groundtruth_file(result_dir, std::ofstream::app);
     //mythread.join();
     //Grab_image();
     // Main loop
@@ -449,6 +452,9 @@ int main(int, char**)
             ImGui::SetCursorPos(ImVec2(1000.0f, 80.0f));
             if (ImGui::Button("connect", ImVec2(90.0f, 40.0f))) {
                 grab.repeat = true;
+                grab.calibrate = false;
+                grab.marker = false;
+                grab.verify = false;
                 /*
                 if (!capture.read(grab.m_image)) {
                     ImGui::Text("Cannot grab a frame!");
@@ -484,8 +490,8 @@ int main(int, char**)
             if (a)
             {
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
-                GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-                cv::waitKey(50);
+                GLuint my_image_texture = matToTexture(time_img.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                //cv::waitKey(50);
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
                 //ImGui::BeginChild("connect");
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
@@ -504,8 +510,11 @@ int main(int, char**)
             ImGui::SetCursorPos(ImVec2(1000.0f, 140.0f));
             if(ImGui::Button("calibration", ImVec2(90.0f, 40.0f)))
             {
+                grab.repeat = false;
                 grab.calibrate = true;
-                grab.calibrate_img = grab.m_image;
+                grab.marker = false;
+                grab.verify = false;
+                grab.calibrate_img = time_img.m_image;
                 cv::imwrite("./excalib.png", grab.calibrate_img);
             }
             bool b = grab.calibrate;
@@ -653,15 +662,24 @@ int main(int, char**)
             ImGui::SetCursorPos(ImVec2(1110.0f, 140.0f));
             if (ImGui::Button("track", ImVec2(90.0f, 40.0f)))
             {
+                grab.repeat = false;
+                grab.calibrate = false;
                 grab.marker = true;
+                grab.verify = false;
             }
             bool c = grab.marker;
             if (c)
             {
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
                 cv::Point2f centerpoint;
-                cv::Mat image = markerdetect(grab.m_image, &centerpoint);
+                cv::Mat image = markerdetect(time_img.m_image, &centerpoint);
                 std::cout << "center.size()" << centerpoint << std::endl;
+                
+                // write the result into file
+                //std::ofstream  groundtruth_file(result_dir, std::ofstream::app);
+                groundtruth_file << time_img.systime << " " << centerpoint.x << " " << centerpoint.y << " 0.0"
+                    << " 0.0" << " 0.0" << " 0.0" << " 0.0" << std::endl;
+
                 //std::cout << "gt.point3: " << gt.point.at<float> (0, 0) << ", " << gt.point.at<float> (0, 1) << std::endl;
                 //float x;
                 //float y;
@@ -670,7 +688,7 @@ int main(int, char**)
                 std::cout << "1" << std::endl;
                 //y = gt.point.at<float> (0, 1);
                 GLuint my_image_texture = matToTexture(image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-                cv::waitKey(50);
+                //cv::waitKey(50);
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
                 //ImGui::BeginChild("track");
                 ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
@@ -685,9 +703,9 @@ int main(int, char**)
                 std::cout << "1" << std::endl;
                 //float x = gt.point.at<float> (0, 0);
                 //float y = gt.point.at<float> (0, 1);
-                //ImGui::Text("To show the marker's location, x:%f, y:%f; Application average %.3f ms/frame (%.1f FPS)", 
-                //            0.5, 0.5, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-                ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
+                ImGui::Text("To show the marker's location, x:%f, y:%f; Application average %.3f ms/frame (%.1f FPS)", 
+                            centerpoint.x, centerpoint.y, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+                //ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
                 std::cout << "1" << std::endl;
                 ImGui::EndChild();
             }
@@ -695,14 +713,17 @@ int main(int, char**)
             //ImGui::SameLine(1110.0f);
             if(ImGui::Button("verify", ImVec2(90.0f, 40.0f)))
             {
+                grab.repeat = false;
+                grab.calibrate = false;
+                grab.marker = false;
                 grab.verify = true;
             }
             bool d = grab.verify;
             if (d)
             {
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
-                GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-                cv::waitKey(50);
+                GLuint my_image_texture = matToTexture(time_img.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                //cv::waitKey(50);
                 ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
                 ImVec2 pos = ImGui::GetCursorScreenPos();
                 cv::FileStorage fread ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::READ );

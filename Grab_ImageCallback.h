@@ -22,11 +22,10 @@ using namespace std;
 
 class Grabimage{
 public:
-    Mat m_image;
+
     //void Grab_image();
     bool g_bExit = false;
     bool g_bReset = false;
-    uint64_t systime;
     mutex _mutex_locker;
     mutex _pic_lock;
     mutex _marker_lock;
@@ -39,5 +38,9 @@ public:
 void Grab_image();
 int StartGrab();
 extern Grabimage grab;
-
+typedef struct{
+    Mat m_image;
+    uint64_t systime;
+    } image_ts;
+extern image_ts time_img;
 int64_t GetTime(void);                                                                         
