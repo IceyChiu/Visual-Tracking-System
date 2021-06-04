@@ -296,7 +296,6 @@ cv::Mat markerdetect(cv::Mat image, cv::Point2f *centerpoint)
 {
     //groundtruth gt;
     const std::string h_matrix_dir = "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml";
-    std::string result_dir;
     const std::string setting_dir = "/home/icey/workspace/Aruco/intrinsic_calibrationfile.yaml";
     gt.intrinsic(setting_dir);
     aruco::MarkerDetector MDetector;
@@ -642,6 +641,8 @@ int main(int, char**)
                         ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
                         ImGui::BeginChild("Scrolling");
                         ImGui::Text("calibration done!");
+                        ImGui::Text("Homograph matrix: [ %.9f, %.9f, %.9f, %.9f, %.9f, %.9f, %.9f, %.9f, %.9f ]", H.at<double> ( 0,0 ), H.at<double> ( 0,1 ), H.at<double> ( 0,2 ), 
+                                    H.at<double> ( 1,0 ), H.at<double> ( 1,1 ), H.at<double> ( 1,2 ), H.at<double> ( 2,0 ), H.at<double> ( 2,1 ), H.at<double> ( 2,2 ));
                         ImGui::EndChild();
                     }
                 }
@@ -671,15 +672,47 @@ int main(int, char**)
             if (c)
             {
                 std::unique_lock<std::mutex> lock(grab._pic_lock);
-                cv::Point2f centerpoint;
-                cv::Mat image = markerdetect(time_img.m_image, &centerpoint);
-                std::cout << "center.size()" << centerpoint << std::endl;
-                
-                // write the result into file
-                //std::ofstream  groundtruth_file(result_dir, std::ofstream::app);
-                groundtruth_file << time_img.systime << " " << centerpoint.x << " " << centerpoint.y << " 0.0"
-                    << " 0.0" << " 0.0" << " 0.0" << " 0.0" << std::endl;
+                //cv::Point2f centerpoint;
+                cv::Mat image = markerdetect(time_img.m_image, &gt.centerpoint);
+                std::cout << "center.size()" << gt.centerpoint << std::endl;
+                if(isnan(gt.centerpoint.x) || isnan(gt.centerpoint.y))
+                {
+                    ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+                    ImGui::BeginChild("Scrolling1");
+                    ImGui::Text("Cannot detect the marker");
+                    ImGui::EndChild();
+                }
+                else if((abs(gt.centerpoint.x - gt.centerpoint_last.x) > 0.02) || (abs(gt.centerpoint.y - gt.centerpoint_last.y) > 0.02 || (abs(time_img.systime - grab.systime_last) < 15 * pow(10, 6))))
+                {
+                    std::cout << "flying!" << std::endl;
+                }
+                else{
+                    gt.centerpoint_last.x = gt.centerpoint.x;
+                    gt.centerpoint_last.y = gt.centerpoint.y;
+                    grab.systime_last = time_img.systime;
+                    // write the result into file
+                    //std::ofstream  groundtruth_file(result_dir, std::ofstream::app);
+                    groundtruth_file << time_img.systime << " " << gt.centerpoint.x << " " << gt.centerpoint.y << " 0.0"
+                        << " 0.0" << " 0.0" << " 0.0" << " 0.0" << std::endl;
 
+                    ImGui::SetCursorPos(ImVec2(20.0f, 720.0f));
+                    ImGui::BeginChild("Scrolling1");
+                    std::cout << "1" << std::endl;
+                    //float x = gt.point.at<float> (0, 0);
+                    //float y = gt.point.at<float> (0, 1);
+                    //ImGui::Text("Please press enter to stop track!");
+                    ImGui::Text("To show the marker's location, x:%f, y:%f; Application average %.3f ms/frame (%.1f FPS)", 
+                            gt.centerpoint.x, gt.centerpoint.y, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+                    //ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
+                    std::cout << "1" << std::endl;
+                    ImGui::EndChild();
+                    ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+                    if(ImGui::Button("stop", ImVec2(40.0f, 20.0f)))
+                    {
+                        grab.marker = false;
+                        grab.repeat = true;
+                    }
+                }
                 //std::cout << "gt.point3: " << gt.point.at<float> (0, 0) << ", " << gt.point.at<float> (0, 1) << std::endl;
                 //float x;
                 //float y;
@@ -698,16 +731,6 @@ int main(int, char**)
                 //string x(std::to_string(gt.pt[0]));
                 //string y(std::to_string(gt.pt[1]));
                 //static float y = gt.pt[1];
-                ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
-                ImGui::BeginChild("Scrolling1");
-                std::cout << "1" << std::endl;
-                //float x = gt.point.at<float> (0, 0);
-                //float y = gt.point.at<float> (0, 1);
-                ImGui::Text("To show the marker's location, x:%f, y:%f; Application average %.3f ms/frame (%.1f FPS)", 
-                            centerpoint.x, centerpoint.y, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-                //ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
-                std::cout << "1" << std::endl;
-                ImGui::EndChild();
             }
             ImGui::SetCursorPos(ImVec2(1110.0f, 80.0f));
             //ImGui::SameLine(1110.0f);

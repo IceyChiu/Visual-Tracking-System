@@ -34,6 +34,7 @@ public:
     bool calibrate;
     bool verify;
     cv::Mat calibrate_img;
+    uint64_t systime_last;
 };
 void Grab_image();
 int StartGrab();

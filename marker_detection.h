@@ -120,6 +120,8 @@ public:
     Eigen::Matrix<float, 3, 3> H;
     cv::Mat cvH;
     cv::Point2f center_position;
+    cv::Point2f centerpoint;
+    cv::Point2f centerpoint_last;
     Eigen::Vector3f position;
     Eigen::Vector3f pt;
     //std::vector<Eigen::Vector3f> pt;
