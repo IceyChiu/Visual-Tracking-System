@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "./thirdparty/MVS/include/MvCameraControl.h"
-#pragma once
 #include <pthread.h>
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>

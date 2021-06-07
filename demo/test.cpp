@@ -3,7 +3,27 @@
 // If you are new to Dear ImGui, read documentation from the docs/ folder + read the top of imgui.cpp.
 // Read online: https://github.com/ocornut/imgui/tree/master/docs
 
-#include "test.h"
+#include "imgui.h"
+#include "imgui_internal.h"
+#include "imgInspect.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <unistd.h>
+//#include <iostream>
+//#include <unistd.h>
+#include <GL/glew.h>            // Initialize with gl3wInit()
+// Include glfw3.h after our OpenGL definitions
+#include <GLFW/glfw3.h>
+//#include <opencv2/opencv.hpp>
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+#include "../Grab_ImageCallback.h"
+//#include <boost/lexical_cast.hpp>
+#include "../marker_detection.h"
+#include <string> 
+
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
 // Your own project should not be affected, as you are likely to link with a newer binary of GLFW that is adequate for your version of Visual Studio.
@@ -322,215 +342,6 @@ static bool cmp(const cv::Point2f &A, const cv::Point2f &B){
         return false;
 }
 
-void connect(int a, int b)
-{
-    std::unique_lock<std::mutex> lock(grab._pic_lock);
-    GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-    //cv::waitKey(50);
-    ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
-    //ImGui::BeginChild("connect");
-    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(a, b));
-}
-
-void calibrate(int a, int b)
-{
-    //std::unique_lock<std::mutex> lock(grab._pic_lock);
-    cv::Mat img = cv::imread("./excalib.png");
-    //cv::Mat img = cv::imread("/home/icey/share/extrinsic/build/data2.bmp", 0);
-    //cv::Mat image = cv::imread("/home/icey/图片/Screenshot from 2021-02-05 11-04-16.png", cv::IMREAD_UNCHANGED);
-    //std::cout << "channel: " << img.channels() << "; type: " << img.type() << std::endl;
-    //std::cout << "1" << std::endl;
-    //cv::cvtColor(img, img, COLOR_GRAY2RGB);
-    cv::Mat img3 = convertTo3Channels(img);
-    cv::Mat img4 = convertto4(img3);
-    const unsigned char* const imgbyte = img.data;
-    //std::cout << "2" << std::endl;
-    GLuint my_image_texture = matToTexture(img, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-    
-    ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
-    
-    ImVec2 pos = ImGui::GetCursorScreenPos();
-    ImVec2 uv_min = ImVec2(0.0f, 0.0f);                 // Top-left
-    ImVec2 uv_max = ImVec2(1.0f, 1.0f);                 // Lower-right
-    ImVec4 tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);   // No tint
-    ImVec4 border_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); // 50% opaque white
-    //ImGui::BeginChild("calibration");
-    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(a, b));
-    //cv::waitKey(50);
-    //ImGui::EndChild();
-    ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    //ImVec2 pos = ImGui::GetCursorScreenPos();
-    //groundtruth gt;
-    //std::vector<cv::Point2f> four_pixel(4);
-    if (ImGui::IsItemHovered())
-    {
-        ImGui::BeginTooltip();
-        float region_sz = 32.0f;
-        float region_x = io.MousePos.x - pos.x - region_sz * 0.5f;
-        float region_y = io.MousePos.y - pos.y - region_sz * 0.5f;
-        float zoom = 4.0f;
-        if (region_x < 0.0) { region_x = 0.0; }
-        else if (region_x > (a - region_sz)) { region_x = a - region_sz; }
-        if (region_y < 0.0) { region_y = 0.0; }
-        else if (region_y > (b - region_sz)) { region_y = b - region_sz; }
-        //ImGui::Text("Min: (%.2f, %.2f)", region_x, region_y);
-        ImGui::Text("coord: (%.2f, %.2f)", (region_x + 0.5 * region_sz) * 2, (region_y + 0.5 * region_sz) * 2);
-        ImVec2 uv0 = ImVec2((region_x - zoom) / a, (region_y - zoom) / b); 
-        ImVec2 uv1 = ImVec2((region_x + region_sz - zoom) / a, (region_y + region_sz - zoom) / b);
-        ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(region_sz * zoom, region_sz * zoom), uv0, uv1, tint_col, border_col);
-        //const ImVec2 pos = ImVec2( region_x + (region_sz - 1.0) / 2.0 * zoom , region_y + (region_sz - 1.0) / 2.0 * zoom );
-        //ImDrawList* draw_list = ImGui::GetWindowDrawList();
-        //draw_list->AddCircle(ImVec2((region_x + region_sz * 0.5 - zoom), (region_y + region_sz * 0.5 - zoom)), 2.0f, 0xFF0000FF);
-        ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
-        /*
-        if (io.MouseDown[0]){
-            ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
-            cv::Point2f four(region_x + 0.5f * region_sz, region_y + 0.5f * region_sz);
-            std::cout << "four: " << four << std::endl;
-            gt.four_pixel.push_back(four);
-            //ImGui::GetForegroundDrawList()->AddCircle(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
-            std::cout << "four_pixel: " << gt.four_pixel[3] << std::endl;
-        }
-        */
-        ImGui::EndTooltip();
-        if (io.MouseDown[1] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f){
-            //ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 5.0f, ImColor(255,255,0,255));
-            cv::Point2f four((region_x + 0.5f * region_sz) * 2, (region_y + 0.5f * region_sz) * 2);
-            std::cout << "four: " << four << std::endl;
-            //gt.four_pixel.erase(gt.four_pixel.begin());
-            gt.four_pixel.push_back(four);
-            std::cout << "four_pixel: " << gt.four_pixel << std::endl;
-            //gt.four_pixel.erase(gt.four_pixel.begin());
-            //ImGui::GetForegroundDrawList()->AddCircle(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
-            if (gt.four_pixel[0] == cv::Point2f(0.0, 0.0))
-                gt.four_pixel.erase(gt.four_pixel.begin());
-            //std::cout << "four_pixel size: " << gt.four_pixel.size() << std::endl;
-        }
-        for (int i = 0; i < 4; i++)
-        {
-            //std::cout << "four_pixel: " << four_pixel[i] << std::endl;
-            ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(gt.four_pixel[i].x / 2.0 + pos.x, gt.four_pixel[i].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
-            ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
-            
-            ImGui::BeginChild("Scrolling");
-            ImGui::Text("%d pixel selected, u:%d, v:%d", i + 1, (int)gt.four_pixel[i].x, (int)gt.four_pixel[i].y);
-            ImGui::EndChild();
-        }
-        //sort(gt.four_pixel.begin(), gt.four_pixel.end(), cmp);
-        gt.four_pixel.erase(unique(gt.four_pixel.begin(), gt.four_pixel.end()), gt.four_pixel.end());
-        if (gt.four_pixel.size() == 4 && gt.four_pixel[0] != cv::Point2f(0.0, 0.0))
-        {
-            cv::FileStorage fread ( "/home/icey/workspace/Aruco/intrinsic_calibrationfile.yaml", cv::FileStorage::READ );
-            float fx = fread["camera.fx"];
-            float fy = fread["camera.fy"];
-            float cx = fread["camera.cx"];
-            float cy = fread["camera.cy"];
-
-            float k1 = fread["camera.k1"];
-            float k2 = fread["camera.k2"];
-            float p1 = fread["camera.p1"];
-            float p2 = fread["camera.p2"];
-            float k3 = fread["camera.k3"];
-            gt.K = ( cv::Mat_<float> ( 3, 3 ) << fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0);
-            gt.dist = ( cv::Mat_<float> ( 1, 5 ) << k1, k2, p1, p2, k3 );
-            cv::undistortPoints ( gt.four_pixel, gt.undist, gt.K, gt.dist, cv::noArray(), cv::noArray());
-            std::vector<cv::Point2f> point{cv::Point2f(0.0, 0.0), cv::Point2f(0.0, 1.0), cv::Point2f(1.0, 0.0), cv::Point2f(1.0, 1.0)};
-            cv::Mat H = findHomography(gt.four_pixel, point, RANSAC, 3);
-            //std::cout << std::endl << H << std::endl << std::endl << std::endl;
-            cv::FileStorage fs ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::WRITE );
-            cv::Mat cvH = ( cv::Mat_<double> ( 3, 3 ) << H.at<double> ( 0,0 ), H.at<double> ( 0,1 ), H.at<double> ( 0,2 ), 
-                            H.at<double> ( 1,0 ), H.at<double> ( 1,1 ), H.at<double> ( 1,2 ), H.at<double> ( 2,0 ), H.at<double> ( 2,1 ), H.at<double> ( 2,2 ) );
-            float a = gt.four_pixel[0].x;
-            float b = gt.four_pixel[0].y;
-            float c = gt.four_pixel[1].x;
-            float d = gt.four_pixel[1].y;
-            float e = gt.four_pixel[2].x;
-            float f = gt.four_pixel[2].y;
-            float g = gt.four_pixel[3].x;
-            float h = gt.four_pixel[3].y;
-            
-            cv::Mat pix = ( cv::Mat_<float> (1, 8) << a, b, c, d, e, f, g, h);
-            fs << "homograph_matrix" << cvH;
-            fs << "four_pixel" << pix;
-            fs.release();
-            std::cout << "calibration done!" << std::endl;
-            ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
-            ImGui::BeginChild("Scrolling");
-            ImGui::Text("calibration done!");
-            ImGui::EndChild();
-        }
-    }
-}
-
-void track(int a, int b)
-{
-    std::unique_lock<std::mutex> lock(grab._pic_lock);
-    cv::Point2f centerpoint;
-    cv::Mat image = markerdetect(grab.m_image, &centerpoint);
-    std::cout << "center.size()" << centerpoint << std::endl;
-    //std::cout << "gt.point3: " << gt.point.at<float> (0, 0) << ", " << gt.point.at<float> (0, 1) << std::endl;
-    //float x;
-    //float y;
-    std::cout << "1" << std::endl;
-    //x = gt.point.at<float> (0, 0);
-    std::cout << "1" << std::endl;
-    //y = gt.point.at<float> (0, 1);
-    GLuint my_image_texture = matToTexture(image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-    //cv::waitKey(50);
-    ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
-    //ImGui::BeginChild("track");
-    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(a, b));
-    //ImGui::EndChild();
-    //float x = 1.0f;
-    //int y = 2;
-    //string x(std::to_string(gt.pt[0]));
-    //string y(std::to_string(gt.pt[1]));
-    //static float y = gt.pt[1];
-    ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
-    ImGui::BeginChild("Scrolling1");
-    std::cout << "1" << std::endl;
-    //float x = gt.point.at<float> (0, 0);
-    //float y = gt.point.at<float> (0, 1);
-    //ImGui::Text("To show the marker's location, x:%f, y:%f; Application average %.3f ms/frame (%.1f FPS)", 
-    //            0.5, 0.5, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-    ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
-    std::cout << "1" << std::endl;
-    ImGui::EndChild();
-}
-
-void verify(int a, int b)
-{
-    std::unique_lock<std::mutex> lock(grab._pic_lock);
-    GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
-    //cv::waitKey(50);
-    ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
-    ImVec2 pos = ImGui::GetCursorScreenPos();
-    cv::FileStorage fread ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::READ );
-    cv::Mat fourposition;
-    fread["four_pixel"] >> fourposition;
-    std::cout << "1" << std::endl;
-    std::cout << fourposition << std::endl;
-    std::vector<cv::Point2f> four_position;
-    std::cout << "1" << std::endl;
-    for (int i = 0; i < 8; i += 2)
-    {
-        float a = fourposition.at<float>(0, i);
-        std::cout << "a: " << a << std::endl;
-        float b = fourposition.at<float>(0, i + 1);
-        cv::Point2f point = cv::Point2f(a, b);
-        std::cout << "2" << std::endl;
-        four_position.push_back(point);
-    }
-    std::cout << "2" << std::endl;
-    //ImGui::BeginChild("verify");
-    ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(a, b));
-    ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[0].x / 2.0 + pos.x, four_position[0].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
-    ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[1].x / 2.0 + pos.x, four_position[1].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
-    ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[2].x / 2.0 + pos.x, four_position[2].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
-    ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[3].x / 2.0 + pos.x, four_position[3].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
-    //ImGui::EndChild();
-}
 
 int main(int, char**)
 {
@@ -635,14 +446,9 @@ int main(int, char**)
             //bool ret = LoadTextureFromFile(grab.m_image, &my_image_texture, &my_image_width, &my_image_height);
             //ImGui::Button("connect");
             //IM_ASSERT(ret);
-            std::cout << "--------------------------------gui running" << std::endl;
             ImGui::SetCursorPos(ImVec2(1000.0f, 80.0f));
             if (ImGui::Button("connect", ImVec2(90.0f, 40.0f))) {
                 grab.repeat = true;
-                grab.marker = false;
-                grab.calibrate = false;
-                grab.verify = false;
-                pthread_create(&test.thread_connect, NULL, connect, my_image_width, my_image_height);
                 /*
                 if (!capture.read(grab.m_image)) {
                     ImGui::Text("Cannot grab a frame!");
@@ -677,7 +483,13 @@ int main(int, char**)
             bool a = grab.repeat;
             if (a)
             {
-                pthread_join(test.thread_connect, NULL);
+                std::unique_lock<std::mutex> lock(grab._pic_lock);
+                GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                cv::waitKey(50);
+                ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                //ImGui::BeginChild("connect");
+                ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                //ImGui::EndChild();
             }
 
             //float x = 0.5;
@@ -693,48 +505,230 @@ int main(int, char**)
             if(ImGui::Button("calibration", ImVec2(90.0f, 40.0f)))
             {
                 grab.calibrate = true;
-                grab.repeat = false;
-                grab.marker = false;
-                grab.verify = false;
                 grab.calibrate_img = grab.m_image;
                 cv::imwrite("./excalib.png", grab.calibrate_img);
-                pthread_create(&test.thread_calibrate, NULL, calibrate, &my_image_width, &my_image_height);
-
             }
             bool b = grab.calibrate;
             if(b)
             {
-                pthread_join(test.thread_calibrate, NULL);                
-            }
+                //std::unique_lock<std::mutex> lock(grab._pic_lock);
+                cv::Mat img = cv::imread("./excalib.png");
+                //cv::Mat img = cv::imread("/home/icey/share/extrinsic/build/data2.bmp", 0);
+                //cv::Mat image = cv::imread("/home/icey/图片/Screenshot from 2021-02-05 11-04-16.png", cv::IMREAD_UNCHANGED);
+                //std::cout << "channel: " << img.channels() << "; type: " << img.type() << std::endl;
+                //std::cout << "1" << std::endl;
+                //cv::cvtColor(img, img, COLOR_GRAY2RGB);
+                cv::Mat img3 = convertTo3Channels(img);
+                cv::Mat img4 = convertto4(img3);
+                const unsigned char* const imgbyte = img.data;
+                //std::cout << "2" << std::endl;
+                GLuint my_image_texture = matToTexture(img, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                
+                ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                
+                ImVec2 pos = ImGui::GetCursorScreenPos();
+                ImVec2 uv_min = ImVec2(0.0f, 0.0f);                 // Top-left
+                ImVec2 uv_max = ImVec2(1.0f, 1.0f);                 // Lower-right
+                ImVec4 tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);   // No tint
+                ImVec4 border_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); // 50% opaque white
+                //ImGui::BeginChild("calibration");
+                ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                //ImGui::EndChild();
+                ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
+                //ImVec2 pos = ImGui::GetCursorScreenPos();
+                //groundtruth gt;
+                //std::vector<cv::Point2f> four_pixel(4);
+                if (ImGui::IsItemHovered())
+                {
+                    ImGui::BeginTooltip();
+                    float region_sz = 32.0f;
+                    float region_x = io.MousePos.x - pos.x - region_sz * 0.5f;
+                    float region_y = io.MousePos.y - pos.y - region_sz * 0.5f;
+                    float zoom = 4.0f;
+                    if (region_x < 0.0) { region_x = 0.0; }
+                    else if (region_x > (my_image_width - region_sz)) { region_x = my_image_width - region_sz; }
+                    if (region_y < 0.0) { region_y = 0.0; }
+                    else if (region_y > (my_image_height - region_sz)) { region_y = my_image_height - region_sz; }
+                    //ImGui::Text("Min: (%.2f, %.2f)", region_x, region_y);
+                    ImGui::Text("coord: (%.2f, %.2f)", (region_x + 0.5 * region_sz) * 2, (region_y + 0.5 * region_sz) * 2);
+                    ImVec2 uv0 = ImVec2((region_x - zoom) / my_image_width, (region_y - zoom) / my_image_height); 
+                    ImVec2 uv1 = ImVec2((region_x + region_sz - zoom) / my_image_width, (region_y + region_sz - zoom) / my_image_height);
+                    ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(region_sz * zoom, region_sz * zoom), uv0, uv1, tint_col, border_col);
+                    //const ImVec2 pos = ImVec2( region_x + (region_sz - 1.0) / 2.0 * zoom , region_y + (region_sz - 1.0) / 2.0 * zoom );
+                    //ImDrawList* draw_list = ImGui::GetWindowDrawList();
+                    //draw_list->AddCircle(ImVec2((region_x + region_sz * 0.5 - zoom), (region_y + region_sz * 0.5 - zoom)), 2.0f, 0xFF0000FF);
+                    ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
+                    /*
+                    if (io.MouseDown[0]){
+                        ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
+                        cv::Point2f four(region_x + 0.5f * region_sz, region_y + 0.5f * region_sz);
+                        std::cout << "four: " << four << std::endl;
+                        gt.four_pixel.push_back(four);
+                        //ImGui::GetForegroundDrawList()->AddCircle(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
+                        std::cout << "four_pixel: " << gt.four_pixel[3] << std::endl;
+                    }
+                    */
+                    ImGui::EndTooltip();
+                    if (io.MouseDown[1] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f){
+                        //ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(io.MousePos.x, io.MousePos.y), 5.0f, ImColor(255,255,0,255));
+                        cv::Point2f four((region_x + 0.5f * region_sz) * 2, (region_y + 0.5f * region_sz) * 2);
+                        std::cout << "four: " << four << std::endl;
+                        //gt.four_pixel.erase(gt.four_pixel.begin());
+                        gt.four_pixel.push_back(four);
+                        std::cout << "four_pixel: " << gt.four_pixel << std::endl;
+                        //gt.four_pixel.erase(gt.four_pixel.begin());
+                        //ImGui::GetForegroundDrawList()->AddCircle(ImVec2(io.MousePos.x, io.MousePos.y), 2.0f, ImColor(255,255,0,255));
+                        if (gt.four_pixel[0] == cv::Point2f(0.0, 0.0))
+                            gt.four_pixel.erase(gt.four_pixel.begin());
+                        //std::cout << "four_pixel size: " << gt.four_pixel.size() << std::endl;
+                    }
+                    for (int i = 0; i < 4; i++)
+                    {
+                        //std::cout << "four_pixel: " << four_pixel[i] << std::endl;
+                        ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(gt.four_pixel[i].x / 2.0 + pos.x, gt.four_pixel[i].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                        ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+                        
+                        ImGui::BeginChild("Scrolling");
+                        ImGui::Text("%d pixel selected, u:%d, v:%d", i + 1, (int)gt.four_pixel[i].x, (int)gt.four_pixel[i].y);
+                        ImGui::EndChild();
+                    }
+                    //sort(gt.four_pixel.begin(), gt.four_pixel.end(), cmp);
+                    gt.four_pixel.erase(unique(gt.four_pixel.begin(), gt.four_pixel.end()), gt.four_pixel.end());
+                    if (gt.four_pixel.size() == 4 && gt.four_pixel[0] != cv::Point2f(0.0, 0.0))
+                    {
+                        cv::FileStorage fread ( "/home/icey/workspace/Aruco/intrinsic_calibrationfile.yaml", cv::FileStorage::READ );
+                        float fx = fread["camera.fx"];
+                        float fy = fread["camera.fy"];
+                        float cx = fread["camera.cx"];
+                        float cy = fread["camera.cy"];
 
+                        float k1 = fread["camera.k1"];
+                        float k2 = fread["camera.k2"];
+                        float p1 = fread["camera.p1"];
+                        float p2 = fread["camera.p2"];
+                        float k3 = fread["camera.k3"];
+                        gt.K = ( cv::Mat_<float> ( 3, 3 ) << fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0);
+                        gt.dist = ( cv::Mat_<float> ( 1, 5 ) << k1, k2, p1, p2, k3 );
+                        cv::undistortPoints ( gt.four_pixel, gt.undist, gt.K, gt.dist, cv::noArray(), cv::noArray());
+                        std::vector<cv::Point2f> point{cv::Point2f(0.0, 0.0), cv::Point2f(0.0, 1.0), cv::Point2f(1.0, 0.0), cv::Point2f(1.0, 1.0)};
+                        cv::Mat H = findHomography(gt.four_pixel, point, RANSAC, 3);
+                        //std::cout << std::endl << H << std::endl << std::endl << std::endl;
+                        cv::FileStorage fs ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::WRITE );
+                        cv::Mat cvH = ( cv::Mat_<double> ( 3, 3 ) << H.at<double> ( 0,0 ), H.at<double> ( 0,1 ), H.at<double> ( 0,2 ), 
+                                        H.at<double> ( 1,0 ), H.at<double> ( 1,1 ), H.at<double> ( 1,2 ), H.at<double> ( 2,0 ), H.at<double> ( 2,1 ), H.at<double> ( 2,2 ) );
+                        float a = gt.four_pixel[0].x;
+                        float b = gt.four_pixel[0].y;
+                        float c = gt.four_pixel[1].x;
+                        float d = gt.four_pixel[1].y;
+                        float e = gt.four_pixel[2].x;
+                        float f = gt.four_pixel[2].y;
+                        float g = gt.four_pixel[3].x;
+                        float h = gt.four_pixel[3].y;
+                        
+                        cv::Mat pix = ( cv::Mat_<float> (1, 8) << a, b, c, d, e, f, g, h);
+                        fs << "homograph_matrix" << cvH;
+                        fs << "four_pixel" << pix;
+                        fs.release();
+                        std::cout << "calibration done!" << std::endl;
+                        ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+                        ImGui::BeginChild("Scrolling");
+                        ImGui::Text("calibration done!");
+                        ImGui::EndChild();
+                    }
+                }
+               /*
+                std::cout << "3" << std::endl;
+                ImRect rc = ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
+                ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
+                //mouseUVCoord.x = 1.f - mouseUVCoord.x;
+                //mouseUVCoord.y = 1.f - mouseUVCoord.y;
+                        
+                if (io.KeyShift && io.MouseDown[0] && mouseUVCoord.x >= 0.f && mouseUVCoord.y >= 0.f)
+                {
+                    int width = my_image_width;
+                    int height = my_image_height;
+                    ImageInspect::inspect(width, height, imgbyte, mouseUVCoord, ImVec2(9, 9));
+                }*/
+            }
             ImGui::SetCursorPos(ImVec2(1110.0f, 140.0f));
             if (ImGui::Button("track", ImVec2(90.0f, 40.0f)))
             {
                 grab.marker = true;
-                grab.repeat = false;
-                grab.calibrate = false;
-                grab.verify = false;
-                pthread_create(&test.thread_track, NULL, track, &my_image_width, &my_image_height);
-           }
+            }
             bool c = grab.marker;
             if (c)
             {
-                pthread_join(test.thread_track, NULL);                
+                std::unique_lock<std::mutex> lock(grab._pic_lock);
+                cv::Point2f centerpoint;
+                cv::Mat image = markerdetect(grab.m_image, &centerpoint);
+                std::cout << "center.size()" << centerpoint << std::endl;
+                //std::cout << "gt.point3: " << gt.point.at<float> (0, 0) << ", " << gt.point.at<float> (0, 1) << std::endl;
+                //float x;
+                //float y;
+                std::cout << "1" << std::endl;
+                //x = gt.point.at<float> (0, 0);
+                std::cout << "1" << std::endl;
+                //y = gt.point.at<float> (0, 1);
+                GLuint my_image_texture = matToTexture(image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                cv::waitKey(50);
+                ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                //ImGui::BeginChild("track");
+                ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                //ImGui::EndChild();
+                //float x = 1.0f;
+                //int y = 2;
+                //string x(std::to_string(gt.pt[0]));
+                //string y(std::to_string(gt.pt[1]));
+                //static float y = gt.pt[1];
+                ImGui::SetCursorPos(ImVec2(20.0f, 680.0f));
+                ImGui::BeginChild("Scrolling1");
+                std::cout << "1" << std::endl;
+                //float x = gt.point.at<float> (0, 0);
+                //float y = gt.point.at<float> (0, 1);
+                //ImGui::Text("To show the marker's location, x:%f, y:%f; Application average %.3f ms/frame (%.1f FPS)", 
+                //            0.5, 0.5, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+                ImGui::Text("To show the marker's location, x:%f, y:%f", centerpoint.x, centerpoint.y);
+                std::cout << "1" << std::endl;
+                ImGui::EndChild();
             }
             ImGui::SetCursorPos(ImVec2(1110.0f, 80.0f));
             //ImGui::SameLine(1110.0f);
             if(ImGui::Button("verify", ImVec2(90.0f, 40.0f)))
             {
                 grab.verify = true;
-                grab.repeat = false;
-                grab.marker = false;
-                grab.calibrate = false;
-                pthread_create(&test.thread_verify, NULL, verify, &my_image_width, &my_image_height);
             }
             bool d = grab.verify;
             if (d)
             {
-                pthread_join(test.thread_verify, NULL);                
+                std::unique_lock<std::mutex> lock(grab._pic_lock);
+                GLuint my_image_texture = matToTexture(grab.m_image, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP);
+                cv::waitKey(50);
+                ImGui::SetCursorPos(ImVec2(20.0f, 40.0f));
+                ImVec2 pos = ImGui::GetCursorScreenPos();
+                cv::FileStorage fread ( "/home/icey/workspace/visual_tracking_system/demo/extrinsic_calibrationfile.yaml", cv::FileStorage::READ );
+                cv::Mat fourposition;
+                fread["four_pixel"] >> fourposition;
+                std::cout << "1" << std::endl;
+                std::cout << fourposition << std::endl;
+                std::vector<cv::Point2f> four_position;
+                std::cout << "1" << std::endl;
+                for (int i = 0; i < 8; i += 2)
+                {
+                    float a = fourposition.at<float>(0, i);
+                    std::cout << "a: " << a << std::endl;
+                    float b = fourposition.at<float>(0, i + 1);
+                    cv::Point2f point = cv::Point2f(a, b);
+                    std::cout << "2" << std::endl;
+                    four_position.push_back(point);
+                }
+                std::cout << "2" << std::endl;
+                //ImGui::BeginChild("verify");
+                ImGui::ImageButton((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[0].x / 2.0 + pos.x, four_position[0].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[1].x / 2.0 + pos.x, four_position[1].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[2].x / 2.0 + pos.x, four_position[2].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2(four_position[3].x / 2.0 + pos.x, four_position[3].y / 2.0 + pos.y), 3.0f, ImColor(255,255,0,255));
+                //ImGui::EndChild();
             }
 
             /*

@@ -1,11 +1,9 @@
 #include "Grab_ImageCallback.h"
 #include "marker_detection.h"
-#include "demo/test.h"
 #include <chrono> 
 #include <mutex>
 Grabimage grab;
 groundtruth gt;
-demo test;
 // 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
 
@@ -91,16 +89,13 @@ static void* WorkThread(void* pUser)
 			break;
 		}
 
-        std::cout << "===========================> begin" << std::endl;
         nRet = MV_CC_GetOneFrameTimeout(pUser, pData, nDataSize, &stImageInfo, 1000);
         if (nRet == MV_OK)
         {
             
             std::unique_lock<std::mutex> lock(grab._pic_lock);
-            //cv::waitKey(50);
-            std::cout << "===========================> running" << std::endl;
+            cv::waitKey(50);
             grab.m_image = cv::Mat(stImageInfo.nHeight, stImageInfo.nWidth, CV_8UC1, pData);
-            std::cout << "===========================> end" << std::endl;
             
                 //imshow("image", grab.m_image);
             
@@ -231,7 +226,7 @@ int StartGrab()
             printf("thread create failed.ret = %d\n",nRet);
             break;
         }
-        pthread_join(nThreadID, NULL);
+
         PressEnterToExit();
 
         // 停止取流
