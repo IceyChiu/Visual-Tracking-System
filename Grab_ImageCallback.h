@@ -30,16 +30,15 @@ public:
     uint64_t systime;
     mutex _mutex_locker;
     mutex _pic_lock;
-    pthread_mutex_t lock_grab;
+    mutex _marker_lock;
     bool repeat;
     bool marker;
     bool calibrate;
     bool verify;
-    Mat calibrate_img;
+    cv::Mat calibrate_img;
 };
 void Grab_image();
 int StartGrab();
 extern Grabimage grab;
-void PressEnterToExit();
-bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo);
-                                                                       
+
+int64_t GetTime(void);                                                                         
