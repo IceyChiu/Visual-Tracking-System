@@ -565,6 +565,7 @@ int main(int, char**)
                     //const ImVec2 pos = ImVec2( region_x + (region_sz - 1.0) / 2.0 * zoom , region_y + (region_sz - 1.0) / 2.0 * zoom );
                     //ImDrawList* draw_list = ImGui::GetWindowDrawList();
                     //draw_list->AddCircle(ImVec2((region_x + region_sz * 0.5 - zoom), (region_y + region_sz * 0.5 - zoom)), 2.0f, 0xFF0000FF);
+                    ImGui::GetForegroundDrawList()->AddCircleFilled(ImVec2((region_x + 0.5 * region_sz - zoom) / my_image_width, (region_y + 0.5 * region_sz - zoom) / my_image_height), 3.0f, ImColor(255,255,0,255));
                     ImVec2 mouseUVCoord = ImVec2((io.MousePos.x - rc.Min.x) / rc.GetSize().x, (io.MousePos.y - rc.Min.y) / rc.GetSize().y);
                     /*
                     if (io.MouseDown[0]){
@@ -682,7 +683,7 @@ int main(int, char**)
                     ImGui::Text("Cannot detect the marker");
                     ImGui::EndChild();
                 }
-                else if((abs(gt.centerpoint.x - gt.centerpoint_last.x) > 0.02) || (abs(gt.centerpoint.y - gt.centerpoint_last.y) > 0.02 || (abs(time_img.systime - grab.systime_last) < 15 * pow(10, 6))))
+                else if(((abs(gt.centerpoint.x - gt.centerpoint_last.x) > 0.02) || (abs(gt.centerpoint.y - gt.centerpoint_last.y) > 0.02)) && (abs(time_img.systime - grab.systime_last) < 60 * pow(10, 6)) || (time_img.systime == grab.systime_last))
                 {
                     std::cout << "flying!" << std::endl;
                 }

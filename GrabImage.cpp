@@ -5,6 +5,8 @@
 Grabimage grab;
 groundtruth gt;
 image_ts time_img;
+bool g_bReset = false;
+int64_t systime;
 // 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
 
@@ -78,7 +80,11 @@ static void* WorkThread(void* pUser)
 		{
 			break;
 		}
-        int64_t systime = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count(); 
+        if (g_bReset == false) {
+            nRet = MV_CC_SetCommandValue(pUser, "GevTimestampControlReset");
+            systime = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count(); 
+            g_bReset = true;
+        }
         nRet = MV_CC_GetOneFrameTimeout(pUser, pData, nDataSize, &stImageInfo, 1000);
         if (nRet == MV_OK)
         {
